@@ -1,0 +1,72 @@
+{
+	"editor": {
+		"allAngles": false,
+		"entityTextureMode": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+	},
+	"textures": {
+		"item": "item/food/vegetable/cooked/turnip"
+	},
+	"elements": [
+		{
+			"name": "turnip 1",
+			"from": [ 7.5, 3.0, 7.5 ], 
+			"to": [ 8.5, 4.5, 8.5 ], 
+			"rotationOrigin": [ 10.0, 1.0, 8.0 ],
+			"faces": {
+				"north": { "texture": "#item", "uv": [ 8.5, 6.5, 9.5, 8.0 ] },
+				"east": { "texture": "#item", "uv": [ 11.5, 6.5, 12.5, 8.0 ] },
+				"south": { "texture": "#item", "uv": [ 8.0, 6.5, 9.0, 8.0 ] },
+				"west": { "texture": "#item", "uv": [ 1.0, 6.5, 2.0, 8.0 ] },
+				"up": { "texture": "#item", "uv": [ 8.0, 6.5, 9.0, 7.5 ] },
+				"down": { "texture": "#item", "uv": [ 10.5, 15.0, 11.5, 16.0 ] }
+			},
+			"children": [
+				{
+					"name": "turnip 1 top",
+					"from": [ 0.125, 1.5, 0.125 ], 
+					"to": [ 0.875, 2.0, 0.875 ], 
+					"rotationOrigin": [ 0.0, -1.0, 0.0 ],
+					"faces": {
+						"north": { "texture": "#item", "uv": [ 1.5, 7.0, 2.0, 7.5 ] },
+						"east": { "texture": "#item", "uv": [ 11.5, 7.0, 12.0, 7.5 ] },
+						"south": { "texture": "#item", "uv": [ 13.5, 7.0, 14.0, 7.5 ] },
+						"west": { "texture": "#item", "uv": [ 8.0, 7.0, 8.5, 7.5 ] },
+						"up": { "texture": "#item", "uv": [ 5.0, 6.0, 5.5, 6.5 ] },
+						"down": { "texture": "#item", "uv": [ 5.0, 6.5, 5.5, 7.0 ], "enabled": false, "windMode": [-1,-1,-1,-1] }
+					}
+				},
+				{
+					"name": "root",
+					"from": [ 0.125, -0.5, 0.125 ], 
+					"to": [ 0.875, 0.0, 0.875 ], 
+					"rotationOrigin": [ -1.0, 0.0, -1.0 ],
+					"faces": {
+						"north": { "texture": "#item", "uv": [ 8.0, 15.5, 8.5, 16.0 ] },
+						"east": { "texture": "#item", "uv": [ 5.0, 15.0, 5.5, 15.5 ] },
+						"south": { "texture": "#item", "uv": [ 12.0, 15.0, 12.5, 15.5 ] },
+						"west": { "texture": "#item", "uv": [ 4.0, 15.0, 4.5, 15.5 ] },
+						"up": { "texture": "#item", "uv": [ 6.0, 9.5, 6.5, 10.0 ], "enabled": false },
+						"down": { "texture": "#item", "uv": [ 10.5, 15.0, 11.0, 15.5 ] }
+					}
+				},
+				{
+					"name": "tip",
+					"from": [ 0.25, -1.0, 0.25 ], 
+					"to": [ 0.75, -0.5, 0.75 ], 
+					"rotationOrigin": [ -0.7, 2.0, -0.8 ],
+					"faces": {
+						"north": { "texture": "#item", "uv": [ 9.0, 15.5, 9.5, 16.0 ] },
+						"east": { "texture": "#item", "uv": [ 6.0, 15.5, 6.5, 16.0 ] },
+						"south": { "texture": "#item", "uv": [ 13.5, 15.5, 14.0, 16.0 ] },
+						"west": { "texture": "#item", "uv": [ 6.0, 15.5, 6.5, 16.0 ] },
+						"up": { "texture": "#item", "uv": [ 6.0, 9.5, 6.5, 10.0 ], "enabled": false },
+						"down": { "texture": "#item", "uv": [ 9.0, 15.5, 9.5, 16.0 ] }
+					}
+				}
+			]
+		}
+	]}

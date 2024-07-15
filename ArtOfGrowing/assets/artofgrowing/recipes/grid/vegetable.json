@@ -1,0 +1,79 @@
+[
+{
+	ingredientPattern: "K,V",
+	shapeless: true,
+	ingredients: {
+		"K": { type: "item", code: "game:knife-*", isTool: true },
+		"V": { type: "item", code: "vegetable-*1-raw", name: "type", quantity: 16 }
+	},
+	width: 1,
+	height: 2,
+	output: { type: "item", code: "game:vegetable-{type}", quantity: 1  }
+},
+{
+	ingredientPattern: "K,V",
+	shapeless: true,
+	ingredients: {
+		"K": { type: "item", code: "game:knife-*", isTool: true },
+		"V": { type: "item", code: "vegetable-*2-raw", name: "type", quantity: 8 }
+	},
+	width: 1,
+	height: 2,
+	output: { type: "item", code: "game:vegetable-{type}", quantity: 1  }
+},
+{
+	ingredientPattern: "K,V",
+	shapeless: true,
+	ingredients: {
+		"K": { type: "item", code: "game:knife-*", isTool: true },
+		"V": { type: "item", code: "vegetable-*3-raw", name: "type", quantity: 4 }
+	},
+	width: 1,
+	height: 2,
+	output: { type: "item", code: "game:vegetable-{type}", quantity: 1  }
+},
+{
+	ingredientPattern: "K,V",
+	shapeless: true,
+	ingredients: {
+		"K": { type: "item", code: "game:knife-*", isTool: true },
+		"V": { type: "item", code: "vegetable-*4-raw", name: "type", quantity: 2 }
+	},
+	width: 1,
+	height: 2,
+	output: { type: "item", code: "game:vegetable-{type}", quantity: 1  }
+},
+{
+	ingredientPattern: "K,V",
+	shapeless: true,
+	ingredients: {
+		"K": { type: "item", code: "game:knife-*", isTool: true },
+		"V": { type: "item", code: "vegetable-*5-raw", name: "type", quantity: 1 }
+	},
+	width: 1,
+	height: 2,
+	output: { type: "item", code: "game:vegetable-{type}", quantity: 1  }
+},
+{
+	ingredientPattern: "K,V",
+	shapeless: true,
+	ingredients: {
+		"K": { type: "item", code: "game:knife-*", isTool: true },
+		"V": { type: "item", code: "vegetable-*6-raw", name: "type", quantity: 1 }
+	},
+	width: 1,
+	height: 2,
+	output: { type: "item", code: "game:vegetable-{type}", quantity: 2  }
+},
+{
+	ingredientPattern: "K,V",
+	shapeless: true,
+	ingredients: {
+		"K": { type: "item", code: "game:knife-*", isTool: true },
+		"V": { type: "item", code: "vegetable-*7-raw", name: "type", quantity: 1 }
+	},
+	width: 1,
+	height: 2,
+	output: { type: "item", code: "game:vegetable-{type}", quantity: 4  }
+}
+]

@@ -1,0 +1,189 @@
+{
+	code: "vegetable",
+	maxstacksizeByType: {
+		"*1*": 512,
+		"*2*": 256,
+		"*3*": 128,
+		"*4*": 64,
+		"*5*": 32,
+		"*6*": 16,
+		"*7*": 8
+	},
+	attributesByType: {
+		"*raw": {
+			foodTags: ["onion"],
+			inContainerTexture: { base: "game:block/wood/barrel/dirty-onion" }
+		},
+		"*cooked": {
+			foodTags: ["onion"],
+			inContainerTexture: { base: "game:block/wood/barrel/cooked-onion" }
+		}
+	},
+	variantgroups: [
+		{ code: "level", states: [ "onion1", "onion2", "onion3", "onion4", "onion5", "onion6", "onion7" ] },
+		{ code: "type", states: [ "raw", "cooked" ] }
+	],
+	shapebytype: {
+		"*": { base: "item/food/vegetable/onion/{type}-{level}" }
+	},
+	creativeinventory: { "general": ["*"], "items": ["*"], "artofgrowing": ["*"]},
+	nutritionPropsByType: {
+		"*1-raw": { satiety: 5, foodcategory: "Vegetable" },
+		"*2-raw": { satiety: 10, foodcategory: "Vegetable" },
+		"*3-raw": { satiety: 20, foodcategory: "Vegetable" },
+		"*4-raw": { satiety: 40, foodcategory: "Vegetable" },
+		"*5-raw": { satiety: 80, foodcategory: "Vegetable" },
+		"*6-raw": { satiety: 160, foodcategory: "Vegetable" },
+		"*7-raw": { satiety: 320, foodcategory: "Vegetable" },
+		"*1-cooked": { satiety: 7, foodcategory: "Vegetable" },
+		"*2-cooked": { satiety: 15, foodcategory: "Vegetable" },
+		"*3-cooked": { satiety: 30, foodcategory: "Vegetable" },
+		"*4-cooked": { satiety: 60, foodcategory: "Vegetable" },
+		"*5-cooked": { satiety: 120, foodcategory: "Vegetable" },
+		"*6-cooked": { satiety: 240, foodcategory: "Vegetable" },
+		"*7-cooked": { satiety: 480, foodcategory: "Vegetable" },
+	},
+	combustiblePropsByType: {
+		"*-raw": {
+			meltingPoint: 200,
+			meltingDuration: 30,
+			smeltedRatio: 1,
+			smeltingType: "cook",
+			smeltedStack: { type: "item", code: "vegetable-{level}-cooked" },
+			requiresContainer: false
+		}
+	},
+	transitionablePropsByType: {		
+		"*1-raw": [{
+			type: "Perish",
+			freshHours: { avg:  936 },
+			transitionHours: { avg: 128 },
+			transitionedStack: { type: "item", code: "game:rot" },
+			transitionRatio: 0.03
+		}],		
+		"*2-raw": [{
+			type: "Perish",
+			freshHours: { avg:  1008 },
+			transitionHours: { avg: 136 },
+			transitionedStack: { type: "item", code: "game:rot" },
+			transitionRatio: 0.06
+		}],		
+		"*3-raw": [{
+			type: "Perish",
+			freshHours: { avg:  1072 },
+			transitionHours: { avg: 144 },
+			transitionedStack: { type: "item", code: "game:rot" },
+			transitionRatio: 0.12
+		}],		
+		"*4-raw": [{
+			type: "Perish",
+			freshHours: { avg:  1136 },
+			transitionHours: { avg: 152 },
+			transitionedStack: { type: "item", code: "game:rot" },
+			transitionRatio: 0.25
+		}],		
+		"*5-raw": [{
+			type: "Perish",
+			freshHours: { avg:  1208 },
+			transitionHours: { avg: 160 },
+			transitionedStack: { type: "item", code: "game:rot" },
+			transitionRatio: 0.5
+		}],		
+		"*6-raw": [{
+			type: "Perish",
+			freshHours: { avg:  1272 },
+			transitionHours: { avg: 168 },
+			transitionedStack: { type: "item", code: "game:rot" },
+			transitionRatio: 1
+		}],		
+		"*7-raw": [{
+			type: "Perish",
+			freshHours: { avg:  1344 },
+			transitionHours: { avg: 176 },
+			transitionedStack: { type: "item", code: "game:rot" },
+			transitionRatio: 2
+		}],
+		"*1-cooked": [{
+			type: "Perish",
+			freshHours: { avg:  336 },
+			transitionHours: { avg: 60 },
+			transitionedStack: { type: "item", code: "game:rot" },
+			transitionRatio: 0.03
+		}],
+		"*2-cooked": [{
+			type: "Perish",
+			freshHours: { avg:  336 },
+			transitionHours: { avg: 60 },
+			transitionedStack: { type: "item", code: "game:rot" },
+			transitionRatio: 0.06
+		}],
+		"*3-cooked": [{
+			type: "Perish",
+			freshHours: { avg:  336 },
+			transitionHours: { avg: 60 },
+			transitionedStack: { type: "item", code: "game:rot" },
+			transitionRatio: 0.12
+		}],
+		"*4-cooked": [{
+			type: "Perish",
+			freshHours: { avg:  336 },
+			transitionHours: { avg: 60 },
+			transitionedStack: { type: "item", code: "game:rot" },
+			transitionRatio: 0.25
+		}],
+		"*5-cooked": [{
+			type: "Perish",
+			freshHours: { avg:  336 },
+			transitionHours: { avg: 60 },
+			transitionedStack: { type: "item", code: "game:rot" },
+			transitionRatio: 0.5
+		}],
+		"*6-cooked": [{
+			type: "Perish",
+			freshHours: { avg:  336 },
+			transitionHours: { avg: 60 },
+			transitionedStack: { type: "item", code: "game:rot" },
+			transitionRatio: 1
+		}],
+		"*7-cooked": [{
+			type: "Perish",
+			freshHours: { avg:  336 },
+			transitionHours: { avg: 60 },
+			transitionedStack: { type: "item", code: "game:rot" },
+			transitionRatio: 2
+		}]
+	},
+	materialDensity: 600,
+	guiTransformByType: {
+		"*": {
+			translation: { x: 0, y: 0, z: 0 },
+			rotation: { x: -37, y: 135, z: -155 },
+			origin: { x: 0.5, y: 0.15, z: 0.5 },
+			scale: 4.85
+		}
+	},
+	fpHandTransformByType: {
+		"*":	{
+			translation: { x: 0, y: 0, z: 0 },
+			rotation: { x: 45, y: 47, z: -30 },
+			origin: { x: 0.5, y: 0.3, z: 0.5 },
+			scale: 1.9
+		}
+	},
+	tpHandTransformByType: {
+		"*": {
+			translation: { x: -0.75, y: -0.13, z: -0.57 },
+			rotation: { x: 0, y: 0, z: -67 },
+			origin: { x: 0.5, y: 0.1, z: 0.5 },
+			scale: 0.84
+		}
+	},
+	groundTransformByType: {
+		"*": {
+			translation: { x: 0, y: 0, z: 0 },
+			rotation: { x: 0, y: 0, z: 83 },
+			origin: { x: 0.47, y: 0, z: 0.5 },
+			scale: 4.3
+		}
+	}
+}

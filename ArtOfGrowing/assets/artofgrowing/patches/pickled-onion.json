@@ -1,0 +1,79 @@
+[
+      {
+        "op": "replace",
+        "path": "/shapebytype/*-onion",
+        "value": { base: "item/food/peeled_vegetable" },
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "add",
+        "path": "/heldRightReadyAnimationByType/*-onion",
+        "value": "holdbothhands",
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "add",
+        "path": "/heldTpIdleAnimationByType/*-onion",
+        "value": "holdbothhands",
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransformByType/*-onion/translation/x",
+        "value": 0,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransformByType/*-onion/rotation/x",
+        "value": 119,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransformByType/*-onion/rotation/y",
+        "value": 102,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransformByType/*-onion/rotation/z",
+        "value": 0,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransformByType/*-onion/origin/y",
+        "value": 0,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/groundTransformByType/*-onion/rotation/z",
+        "value": 0,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/tpHandTransformByType/*-onion/translation/y",
+        "value": -0.1,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/tpHandTransformByType/*-onion/origin/y",
+        "value": 0,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      }
+]

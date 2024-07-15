@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtOfGrowing", "ArtOfGrowing\ArtOfGrowing.csproj", "{F81B749A-2DC5-426B-820D-CECC117F6D55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CakeBuild", "CakeBuild\CakeBuild.csproj", "{AE6E7E6D-E0FF-4B4E-92C8-5A4FE3550997}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F81B749A-2DC5-426B-820D-CECC117F6D55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F81B749A-2DC5-426B-820D-CECC117F6D55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F81B749A-2DC5-426B-820D-CECC117F6D55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F81B749A-2DC5-426B-820D-CECC117F6D55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE6E7E6D-E0FF-4B4E-92C8-5A4FE3550997}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE6E7E6D-E0FF-4B4E-92C8-5A4FE3550997}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE6E7E6D-E0FF-4B4E-92C8-5A4FE3550997}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE6E7E6D-E0FF-4B4E-92C8-5A4FE3550997}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D3B769E8-987B-4A67-990D-BB853B6C836E}
+	EndGlobalSection
+EndGlobal

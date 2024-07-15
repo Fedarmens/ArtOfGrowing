@@ -1,0 +1,159 @@
+[
+      {
+        "op": "add",
+        "path": "/textures",
+        "value": 
+        {
+          "grain": { base: "block/food/grain/{type}" },
+          "seed": { base: "item/resource/seeds/{type}" }
+      },
+        "file": "game:itemtypes/food/grain.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/shape",
+        "value": { base: "item/food/grainbag" },
+        "file": "game:itemtypes/food/grain.json",
+        "side": "Server"
+      },
+      {
+        "op": "remove",
+        "path": "/texture",
+        "file": "game:itemtypes/food/grain.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransform/translation/x",
+        "value": 3,
+        "file": "game:itemtypes/food/grain.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransform/translation/y",
+        "value": 0,
+        "file": "game:itemtypes/food/grain.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransform/translation/z",
+        "value": 0,
+        "file": "game:itemtypes/food/grain.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransform/rotation/x",
+        "value": 158,
+        "file": "game:itemtypes/food/grain.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransform/rotation/y",
+        "value": -145,
+        "file": "game:itemtypes/food/grain.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransform/rotation/z",
+        "value": 0,
+        "file": "game:itemtypes/food/grain.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransform/origin/x",
+        "value": 0.5,
+        "file": "game:itemtypes/food/grain.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransform/origin/y",
+        "value": 0.4,
+        "file": "game:itemtypes/food/grain.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransform/origin/z",
+        "value": 0.5,
+        "file": "game:itemtypes/food/grain.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransform/scale",
+        "value": 1.75,
+        "file": "game:itemtypes/food/grain.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/tpHandTransform/translation/x",
+        "value": -0.4,
+        "file": "game:itemtypes/food/grain.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/tpHandTransform/translation/y",
+        "value": 0.1,
+        "file": "game:itemtypes/food/grain.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/tpHandTransform/translation/z",
+        "value": 0.2,
+        "file": "game:itemtypes/food/grain.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/tpHandTransform/rotation/x",
+        "value": -64,
+        "file": "game:itemtypes/food/grain.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/tpHandTransform/rotation/y",
+        "value": 22,
+        "file": "game:itemtypes/food/grain.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/tpHandTransform/rotation/z",
+        "value": -110,
+        "file": "game:itemtypes/food/grain.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/tpHandTransform/origin/x",
+        "value": 0.2,
+        "file": "game:itemtypes/food/grain.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/tpHandTransform/origin/y",
+        "value": 0.2,
+        "file": "game:itemtypes/food/grain.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/tpHandTransform/origin/z",
+        "value": -0.1,
+        "file": "game:itemtypes/food/grain.json",
+        "side": "Server"
+      },
+]

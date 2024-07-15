@@ -1,0 +1,79 @@
+[
+      {
+        "op": "replace",
+        "path": "/shapebytype/*-carrot",
+        "value": { base: "item/food/peeled_vegetable" },
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "add",
+        "path": "/heldRightReadyAnimationByType/*-carrot",
+        "value": "holdbothhands",
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "add",
+        "path": "/heldTpIdleAnimationByType/*-carrot",
+        "value": "holdbothhands",
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransformByType/*-carrot/translation/x",
+        "value": 0,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransformByType/*-carrot/rotation/x",
+        "value": 119,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransformByType/*-carrot/rotation/y",
+        "value": 102,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransformByType/*-carrot/rotation/z",
+        "value": 0,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransformByType/*-carrot/origin/y",
+        "value": 0,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/groundTransformByType/*-carrot/rotation/z",
+        "value": 0,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/tpHandTransformByType/*-carrot/translation/y",
+        "value": -0.1,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/tpHandTransformByType/*-carrot/origin/y",
+        "value": 0,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      }
+]

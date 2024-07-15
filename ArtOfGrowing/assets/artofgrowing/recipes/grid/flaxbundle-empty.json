@@ -1,0 +1,79 @@
+[
+{
+	ingredientPattern: "V",
+	shapeless: true,
+	ingredients: {		
+		"V": { type: "item", code: "flaxbundle-dry-1", quantity: 16, 
+		returnedStack: { type: "item", code: "game:grain-flax", quantity: 1 } }
+	},
+	width: 1,
+	height: 1,
+	output: { type: "item", code: "flaxbundle-empty-1", quantity: 16  }
+},
+{
+	ingredientPattern: "V",
+	shapeless: true,
+	ingredients: {		
+		"V": { type: "item", code: "flaxbundle-dry-2", quantity: 8, 
+		returnedStack: { type: "item", code: "game:grain-flax", quantity: 1 }  }
+	},
+	width: 1,
+	height: 1,
+	output: { type: "item", code: "flaxbundle-empty-2", quantity: 8  }
+},
+{
+	ingredientPattern: "V",
+	shapeless: true,
+	ingredients: {		
+		"V": { type: "item", code: "flaxbundle-dry-3", quantity: 4, 
+		returnedStack: { type: "item", code: "game:grain-flax", quantity: 1 }  }
+	},
+	width: 1,
+	height: 1,
+	output: { type: "item", code: "flaxbundle-empty-3", quantity: 4  }
+},
+{
+	ingredientPattern: "V",
+	shapeless: true,
+	ingredients: {		
+		"V": { type: "item", code: "flaxbundle-dry-4", quantity: 2,  
+		returnedStack: { type: "item", code: "game:grain-flax", quantity: 1 }  }
+	},
+	width: 1,
+	height: 1,
+	output: { type: "item", code: "flaxbundle-empty-4", quantity: 2  }
+},
+{
+	ingredientPattern: "V",
+	shapeless: true,
+	ingredients: {		
+		"V": { type: "item", code: "flaxbundle-dry-5", quantity: 1, 
+		returnedStack: { type: "item", code: "game:grain-flax", quantity: 1 }  }
+	},
+	width: 1,
+	height: 1,
+	output: { type: "item", code: "flaxbundle-empty-5", quantity: 1  }
+},
+{
+	ingredientPattern: "V",
+	shapeless: true,
+	ingredients: {		
+		"V": { type: "item", code: "flaxbundle-dry-6", quantity: 1, 
+		returnedStack: { type: "item", code: "game:grain-flax", quantity: 2 }  }
+	},
+	width: 1,
+	height: 1,
+	output: { type: "item", code: "flaxbundle-empty-6", quantity: 1  }
+},
+{
+	ingredientPattern: "V",
+	shapeless: true,
+	ingredients: {		
+		"V": { type: "item", code: "flaxbundle-dry-7", quantity: 1, 
+		returnedStack: { type: "item", code: "game:grain-flax", quantity: 4 }  }
+	},
+	width: 1,
+	height: 1,
+	output: { type: "item", code: "flaxbundle-empty-7", quantity: 1  }
+}
+]

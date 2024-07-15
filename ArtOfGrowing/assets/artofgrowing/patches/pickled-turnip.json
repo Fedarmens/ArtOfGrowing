@@ -1,0 +1,79 @@
+[
+      {
+        "op": "replace",
+        "path": "/shapebytype/*-turnip",
+        "value": { base: "item/food/peeled_vegetable" },
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "add",
+        "path": "/heldRightReadyAnimationByType/*-turnip",
+        "value": "holdbothhands",
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "add",
+        "path": "/heldTpIdleAnimationByType/*-turnip",
+        "value": "holdbothhands",
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransformByType/*-turnip/translation/x",
+        "value": 0,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransformByType/*-turnip/rotation/x",
+        "value": 119,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransformByType/*-turnip/rotation/y",
+        "value": 102,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransformByType/*-turnip/rotation/z",
+        "value": 0,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransformByType/*-turnip/origin/y",
+        "value": 0,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/groundTransformByType/*-turnip/rotation/z",
+        "value": 0,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/tpHandTransformByType/*-turnip/translation/y",
+        "value": -0.1,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/tpHandTransformByType/*-turnip/origin/y",
+        "value": 0,
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      }
+]

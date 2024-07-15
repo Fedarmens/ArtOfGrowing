@@ -1,0 +1,16 @@
+[
+      {
+        "op": "add",
+        "path": "/textures/normal",
+        "value": { base: "game:block/cloth/cloth-ruined" },
+        "file": "game:itemtypes/resource/seeds.json",
+        "side": "Server"
+      },
+      {
+        "op": "replace",
+        "path": "/guiTransform/rotation/y",
+        "value": -148,
+        "file": "game:itemtypes/resource/seeds.json",
+        "side": "Server"
+      },
+]

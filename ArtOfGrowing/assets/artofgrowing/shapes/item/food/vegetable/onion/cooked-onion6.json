@@ -1,0 +1,56 @@
+{
+	"editor": {
+		"allAngles": false,
+		"entityTextureMode": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+	},
+	"textures": {
+		"bulb": "item/food/vegetable/cooked/onion"
+	},
+	"elements": [
+		{
+			"name": "onion 2",
+			"from": [ 6.5, 0.5, 6.5 ], 
+			"to": [ 9.5, 2.5, 9.5 ], 
+			"rotationOrigin": [ 7.8, 0.0, 8.0 ],
+			"faces": {
+				"north": { "texture": "#bulb", "uv": [ 5.5, 12.5, 8.5, 14.5 ] },
+				"east": { "texture": "#bulb", "uv": [ 12.0, 12.5, 15.0, 14.5 ] },
+				"south": { "texture": "#bulb", "uv": [ 7.0, 12.5, 10.0, 14.5 ] },
+				"west": { "texture": "#bulb", "uv": [ 11.0, 13.0, 14.0, 15.0 ] },
+				"up": { "texture": "#bulb", "uv": [ 11.5, 4.0, 14.5, 7.0 ] },
+				"down": { "texture": "#bulb", "uv": [ 5.0, 8.0, 8.0, 11.0 ] }
+			}
+		},
+		{
+			"name": "onion 2 top",
+			"from": [ 7.0, 2.5, 7.0 ], 
+			"to": [ 9.0, 3.0, 9.0 ], 
+			"rotationOrigin": [ 6.75, 0.5, 6.75 ],
+			"faces": {
+				"north": { "texture": "#bulb", "uv": [ 7.0, 4.0, 9.0, 4.5 ] },
+				"east": { "texture": "#bulb", "uv": [ 7.0, 4.5, 9.0, 5.0 ] },
+				"south": { "texture": "#bulb", "uv": [ 11.0, 4.5, 13.0, 5.0 ] },
+				"west": { "texture": "#bulb", "uv": [ 0.5, 4.0, 2.5, 4.5 ] },
+				"up": { "texture": "#bulb", "uv": [ 11.5, 4.5, 13.5, 6.5 ] },
+				"down": { "texture": "#bulb", "uv": [ 9.0, 7.0, 11.0, 9.0 ], "enabled": false }
+			}
+		},
+		{
+			"name": "onion bottom",
+			"from": [ 7.0, 0.0, 7.0 ], 
+			"to": [ 9.0, 0.5, 9.0 ], 
+			"rotationOrigin": [ 6.75, 0.5, 6.75 ],
+			"faces": {
+				"north": { "texture": "#bulb", "uv": [ 12.5, 6.5, 14.5, 7.0 ] },
+				"east": { "texture": "#bulb", "uv": [ 0.5, 6.0, 2.5, 6.5 ] },
+				"south": { "texture": "#bulb", "uv": [ 9.5, 6.0, 11.5, 6.5 ] },
+				"west": { "texture": "#bulb", "uv": [ 3.0, 6.5, 5.0, 7.0 ] },
+				"up": { "texture": "#bulb", "uv": [ 3.0, 8.0, 5.0, 10.0 ], "enabled": false },
+				"down": { "texture": "#bulb", "uv": [ 10.0, 5.5, 12.0, 7.5 ] }
+			}
+		}
+	]}

@@ -1,0 +1,79 @@
+[
+{
+	ingredientPattern: "V,V",
+	shapeless: true,
+	ingredients: {
+		"V": { type: "item", code: "grainbundle-*-1", name: "type", quantity: 8, skipVariants: ["flax"], 
+		returnedStack: { type: "item", code: "game:thatch" } }
+	},
+	width: 1,
+	height: 2,
+	output: { type: "item", code: "game:seeds-{type}", quantity: 2  }
+},
+{
+	ingredientPattern: "V,V",
+	shapeless: true,
+	ingredients: {
+		"V": { type: "item", code: "grainbundle-*-2", name: "type", quantity: 4, skipVariants: ["flax"], 
+		returnedStack: { type: "item", code: "game:thatch" } }
+	},
+	width: 1,
+	height: 2,
+	output: { type: "item", code: "seeds-{type}2", quantity: 2  }
+},
+{
+	ingredientPattern: "V,V",
+	shapeless: true,
+	ingredients: {
+		"V": { type: "item", code: "grainbundle-*-3", name: "type", quantity: 2, skipVariants: ["flax"], 
+		returnedStack: { type: "item", code: "game:thatch" } }
+	},
+	width: 1,
+	height: 2,
+	output: { type: "item", code: "seeds-{type}3", quantity: 2  }
+},
+{
+	ingredientPattern: "V,V",
+	shapeless: true,
+	ingredients: {
+		"V": { type: "item", code: "grainbundle-*-4", name: "type", quantity: 1, skipVariants: ["flax"], 
+		returnedStack: { type: "item", code: "game:thatch" } }
+	},
+	width: 1,
+	height: 2,
+	output: { type: "item", code: "seeds-{type}4", quantity: 2  }
+},
+{
+	ingredientPattern: "V,V",
+	shapeless: true,
+	ingredients: {
+		"V": { type: "item", code: "grainbundle-*-5", name: "type", quantity: 1, skipVariants: ["flax"], 
+		returnedStack: { type: "item", code: "game:thatch", quantity: 2 } }
+	},
+	width: 1,
+	height: 2,
+	output: { type: "item", code: "seeds-{type}5", quantity: 4  }
+},
+{
+	ingredientPattern: "V,V",
+	shapeless: true,
+	ingredients: {
+		"V": { type: "item", code: "grainbundle-*-6", name: "type", quantity: 1, skipVariants: ["flax"], 
+		returnedStack: { type: "item", code: "game:thatch", quantity: 4 } }
+	},
+	width: 1,
+	height: 2,
+	output: { type: "item", code: "seeds-{type}6", quantity: 8  }
+},
+{
+	ingredientPattern: "V,V",
+	shapeless: true,
+	ingredients: {
+		"V": { type: "item", code: "grainbundle-*-7", name: "type", quantity: 1, skipVariants: ["flax"], 
+		returnedStack: { type: "item", code: "game:thatch", quantity: 8 } }
+	},
+	width: 1,
+	height: 2,
+	output: { type: "item", code: "seeds-{type}7", quantity: 16  }
+}
+]

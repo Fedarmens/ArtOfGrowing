@@ -1,0 +1,14 @@
+[    
+    {
+        "op": "add",
+        "path": "/texturebytype",
+        "value": 
+        {
+          "*-turnip": {  base: "item/food/pickledvegetable/turnip" },
+          "*-carrot": {  base: "item/food/pickledvegetable/carrot" },
+          "*-onion": {  base: "item/food/pickledvegetable/onion" }
+      },
+        "file": "game:itemtypes/food/pickledvegetable.json",
+        "side": "Server"
+      }
+]

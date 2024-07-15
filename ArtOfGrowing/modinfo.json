@@ -1,0 +1,13 @@
+{
+    "type": "code",
+    "modid": "artofgrowing",
+    "name": "Art of Growing",
+    "authors": [
+        "Fedarmens"
+    ],
+    "description": "Cultivation of plants from wild to cultivated varieties",
+    "version": "0.0.4",
+    "dependencies": {
+        "game": ""
+    }
+}

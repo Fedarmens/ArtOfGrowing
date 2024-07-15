@@ -1,0 +1,39 @@
+[
+  {
+    "op": "add",
+    "path": "/behaviorsByType",
+    "value": {
+      "*": [
+        {
+          "name": "HayStorable",
+          "properties": {
+            "layout": "Stacking",
+            "placeRemoveSound": "game:sounds/block/plant",
+            "stackingModel": "artofgrowing:block/haystorage",
+            "stackingTextures": {
+              "normal-side": "block/plant/grassroofing/normal-side",
+              "normal-top": "block/plant/grassroofing/normal-top",
+              "straw1": "block/plant/grassroofing/straw1"
+            },
+            "modelItemsToStackSizeRatio": 2.25,
+            "stackingCapacity": 64,
+            "maxStackingHeight": 1,
+            "collisionBox": {
+              "x1": 0,
+              "y1": 0,
+              "z1": 0,
+              "x2": 1,
+              "y2": 0.0625,
+              "z2": 1
+            },
+            "cbScaleYByLayer": 0.25,
+            "transferQuantity": 4,
+            "bulkTransferQuantity": 16
+          }
+        }
+      ]
+    },
+    "file": "game:itemtypes/resource/thatch.json",
+    "side": "Server"
+  }
+]

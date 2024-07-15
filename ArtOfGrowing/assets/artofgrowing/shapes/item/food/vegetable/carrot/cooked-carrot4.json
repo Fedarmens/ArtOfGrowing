@@ -1,0 +1,72 @@
+{
+	"editor": {
+		"allAngles": false,
+		"entityTextureMode": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+	},
+	"textures": {
+		"bulb": "item/food/vegetable/cooked/carrot"
+	},
+	"elements": [
+		{
+			"name": "carrot",
+			"from": [ 7.4, 3.5, 7.4 ], 
+			"to": [ 8.7, 5.5, 8.7 ], 
+			"rotationOrigin": [ 8.0, 1.0, 8.1 ],
+			"faces": {
+				"north": { "texture": "#bulb", "uv": [ 11.0, 4.5, 12.0, 6.5 ], "rotation": 180 },
+				"east": { "texture": "#bulb", "uv": [ 1.0, 4.5, 2.0, 6.5 ], "rotation": 180 },
+				"south": { "texture": "#bulb", "uv": [ 0.0, 4.5, 1.0, 6.5 ], "rotation": 180 },
+				"west": { "texture": "#bulb", "uv": [ 6.5, 4.5, 7.5, 6.5 ], "rotation": 180 },
+				"up": { "texture": "#bulb", "uv": [ 9.5, 6.0, 10.5, 7.0 ] },
+				"down": { "texture": "#bulb", "uv": [ 4.5, 6.5, 5.5, 7.5 ], "windMode": [-1,-1,-1,-1] }
+			},
+			"children": [
+				{
+					"name": "carrot top",
+					"from": [ 0.15, 2.0, 0.15 ], 
+					"to": [ 1.15, 2.5, 1.15 ], 
+					"rotationOrigin": [ -0.15, -1.0, -0.15 ],
+					"faces": {
+						"north": { "texture": "#bulb", "uv": [ 13.0, 7.0, 14.0, 7.5 ] },
+						"east": { "texture": "#bulb", "uv": [ 2.0, 7.0, 3.0, 7.5 ] },
+						"south": { "texture": "#bulb", "uv": [ 8.5, 7.0, 9.5, 7.5 ] },
+						"west": { "texture": "#bulb", "uv": [ 3.0, 7.0, 4.0, 7.5 ] },
+						"up": { "texture": "#bulb", "uv": [ 7.0, 7.0, 8.0, 8.0 ] },
+						"down": { "texture": "#bulb", "uv": [ 9.0, 7.0, 10.0, 8.0 ], "enabled": false }
+					}
+				},
+				{
+					"name": "carrot middle",
+					"from": [ 0.2, -1.5, 0.2 ], 
+					"to": [ 1.05, 0.0, 1.05 ], 
+					"rotationOrigin": [ -0.15, 0.0, -0.15 ],
+					"faces": {
+						"north": { "texture": "#bulb", "uv": [ 12.0, 6.0, 13.5, 6.5 ], "rotation": 90 },
+						"east": { "texture": "#bulb", "uv": [ 5.0, 6.0, 6.5, 6.5 ], "rotation": 90 },
+						"south": { "texture": "#bulb", "uv": [ 4.0, 4.0, 5.5, 4.5 ], "rotation": 90 },
+						"west": { "texture": "#bulb", "uv": [ 3.0, 6.0, 4.5, 6.5 ], "rotation": 90 },
+						"up": { "texture": "#bulb", "uv": [ 12.0, 5.0, 12.5, 5.5 ], "enabled": false },
+						"down": { "texture": "#bulb", "uv": [ 9.0, 7.0, 9.5, 7.5 ], "windMode": [-1,-1,-1,-1] }
+					}
+				},
+				{
+					"name": "carrot tip",
+					"from": [ 0.35, -2.5, 0.35 ], 
+					"to": [ 0.85, -1.5, 0.85 ], 
+					"rotationOrigin": [ -0.15, 0.0, -0.15 ],
+					"faces": {
+						"north": { "texture": "#bulb", "uv": [ 12.0, 6.0, 12.5, 7.0 ] },
+						"east": { "texture": "#bulb", "uv": [ 5.0, 6.0, 5.5, 7.0 ] },
+						"south": { "texture": "#bulb", "uv": [ 4.0, 4.0, 4.5, 5.0 ] },
+						"west": { "texture": "#bulb", "uv": [ 3.0, 6.0, 3.5, 7.0 ] },
+						"up": { "texture": "#bulb", "uv": [ 12.0, 5.0, 12.5, 5.5 ], "enabled": false },
+						"down": { "texture": "#bulb", "uv": [ 9.0, 7.0, 9.5, 7.5 ], "windMode": [-1,-1,-1,-1] }
+					}
+				}
+			]
+		}
+	]}

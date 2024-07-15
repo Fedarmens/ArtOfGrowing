@@ -1,0 +1,47 @@
+{
+	code: "vegetable",
+	maxstacksize: 64,	
+	variantgroups: [
+		{ code: "type", states: ["scallions"] }
+	],
+	shapebytype: {
+		"*-scallions": { base: "item/food/vegetable/scallions" }
+	},
+	creativeinventory: { "general": ["*"], "items": ["*"], "artofgrowing": ["*"] },
+	nutritionPropsByType: {
+		"*": { satiety: 50, foodcategory: "NoNutrition" }
+	},
+	transitionablePropsByType: {
+		"*-scallions": [{
+			type: "Perish",
+			freshHours: { avg: 216 },
+			transitionHours: { avg: 72 },
+			transitionedStack: { type: "item", code: "game:rot" },
+			transitionRatio: 0.25
+		}]
+	},
+	materialDensity: 600,
+	guiTransform: {
+		translation: { x: 0, y: 0, z: 0 },
+		rotation: { x: 120, y: -34, z: 40 },
+		origin: { x: 0.46, y: 0.2, z: 0.5 },
+		scale: 1.77
+	},
+	fpHandTransform: {
+		rotation: { x: 84, y: 92, z: -30 },
+		origin: { x: 0.5, y: 0.3, z: 0.6 },
+		scale: 1.31
+	},
+	tpHandTransform: {
+		translation: { x: -1.11, y: -0.22, z: -0.66 },
+		rotation: { x: -90, y: -14, z: -6 },
+		origin: { x: 0.5, y: 0.1, z: 0.5 },
+		scale: 0.64
+	},
+	groundTransform: {
+		translation: { x: 0, y: 0, z: 0 },
+		rotation: { x: 90, y: 0, z: 0 },
+		origin: { x: 0.5, y: 0.5, z: 0.61 },
+		scale: 4
+	}
+}

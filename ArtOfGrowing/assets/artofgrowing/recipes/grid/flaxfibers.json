@@ -1,0 +1,73 @@
+[
+    {
+        ingredientPattern: "V,V,V,V",
+        shapeless: true,
+        ingredients: {
+            "V": { type: "item", code: "flaxbundle-soft-1", quantity: 2 } 
+        },
+        width: 2,
+        height: 2,
+        output: { type: "item", code: "game:flaxfibers", quantity: 1  }
+    },
+    {
+        ingredientPattern: "V,V,V,V",
+        shapeless: true,
+        ingredients: {
+            "V": { type: "item", code: "flaxbundle-soft-2", quantity: 1 } 
+        },
+        width: 2,
+        height: 2,
+        output: { type: "item", code: "game:flaxfibers", quantity: 1  }
+    },
+    {
+        ingredientPattern: "V,V,V,V",
+        shapeless: true,
+        ingredients: {
+            "V": { type: "item", code: "flaxbundle-soft-3", quantity: 1 } 
+        },
+        width: 2,
+        height: 2,
+        output: { type: "item", code: "game:flaxfibers", quantity: 2  }
+    },
+    {
+        ingredientPattern: "V,V,V,V",
+        shapeless: true,
+        ingredients: {
+            "V": { type: "item", code: "flaxbundle-soft-4", quantity: 1 } 
+        },
+        width: 2,
+        height: 2,
+        output: { type: "item", code: "game:flaxfibers", quantity: 4  }
+    },
+    {
+        ingredientPattern: "V,V,V,V",
+        shapeless: true,
+        ingredients: {
+            "V": { type: "item", code: "flaxbundle-soft-5", quantity: 1 } 
+        },
+        width: 2,
+        height: 2,
+        output: { type: "item", code: "game:flaxfibers", quantity: 8  }
+    },
+    {
+        ingredientPattern: "V,V,V,V",
+        shapeless: true,
+        ingredients: {
+            "V": { type: "item", code: "flaxbundle-soft-6", quantity: 1 } 
+        },
+        width: 2,
+        height: 2,
+        output: { type: "item", code: "game:flaxfibers", quantity: 16  }
+    },
+    {
+        ingredientPattern: "V,V,V,V",
+        shapeless: true,
+        ingredients: {
+            "V": { type: "item", code: "flaxbundle-soft-7", quantity: 1 } 
+        },
+        width: 2,
+        height: 2,
+        output: { type: "item", code: "game:flaxfibers", quantity: 32  }
+    },
+    
+]

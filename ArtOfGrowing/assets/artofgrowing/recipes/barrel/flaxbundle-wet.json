@@ -1,0 +1,58 @@
+[
+	{
+		code: "flaxbundle-wet-1",
+		ingredients: [
+			{ type: "item", code: "game:waterportion", litres: 1, consumeLitres: 1 },
+			{ type: "item", code: "flaxbundle-empty-1", quantity: 16 }
+		],
+		output: { type: "item", code: "flaxbundle-wet-1", quantity: 16 }
+	},
+	{
+		code: "flaxbundle-wet-2",
+		ingredients: [
+			{ type: "item", code: "game:waterportion", litres: 1, consumeLitres: 1 },
+			{ type: "item", code: "flaxbundle-empty-2", quantity: 8 }
+		],
+		output: { type: "item", code: "flaxbundle-wet-2", quantity: 8 }
+	},
+	{
+		code: "flaxbundle-wet-3",
+		ingredients: [
+			{ type: "item", code: "game:waterportion", litres: 1, consumeLitres: 1 },
+			{ type: "item", code: "flaxbundle-empty-3", quantity: 4 }
+		],
+		output: { type: "item", code: "flaxbundle-wet-3", quantity: 4 }
+	},
+	{
+		code: "flaxbundle-wet-4",
+		ingredients: [
+			{ type: "item", code: "game:waterportion", litres: 1, consumeLitres: 1 },
+			{ type: "item", code: "flaxbundle-empty-4", quantity: 2 }
+		],
+		output: { type: "item", code: "flaxbundle-wet-4", quantity: 2 }
+	},
+	{
+		code: "flaxbundle-wet-5",
+		ingredients: [
+			{ type: "item", code: "game:waterportion", litres: 1, consumeLitres: 1 },
+			{ type: "item", code: "flaxbundle-empty-5", quantity: 1 }
+		],
+		output: { type: "item", code: "flaxbundle-wet-5", quantity: 1 }
+	},
+	{
+		code: "flaxbundle-wet-6",
+		ingredients: [
+			{ type: "item", code: "game:waterportion", litres: 1, consumeLitres: 1 },
+			{ type: "item", code: "flaxbundle-empty-6", quantity: 1 }
+		],
+		output: { type: "item", code: "flaxbundle-wet-6", quantity: 1 }
+	},
+	{
+		code: "flaxbundle-wet-7",
+		ingredients: [
+			{ type: "item", code: "game:waterportion", litres: 1, consumeLitres: 1 },
+			{ type: "item", code: "flaxbundle-empty-7", quantity: 1 }
+		],
+		output: { type: "item", code: "flaxbundle-wet-7", quantity: 1 }
+	}
+]

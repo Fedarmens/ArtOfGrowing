@@ -1,0 +1,350 @@
+{
+	"code": "grainbundle",
+	"behaviorsByType": {
+		"*-1": [
+			{
+				"name": "HayStorable",
+				"properties": {
+					"layout": "Stacking",
+					"placeRemoveSound": "game:sounds/block/plant",
+					"stackingModel": "block/haystorage",
+					"stackingTextures": {
+						"normal-side": "block/plant/hay/wet/normal-side-{type}",
+						"normal-top": "block/plant/hay/wet/normal-top-{type}",
+						"straw1": "block/plant/hay/wet/straw-{type}"
+					},
+					"modelItemsToStackSizeRatio": 0.28125,
+					"stackingCapacity": 512,
+					"maxStackingHeight": 1,
+					"collisionBox": {
+						"x1": 0,
+						"y1": 0,
+						"z1": 0,
+						"x2": 1,
+						"y2": 0.0625,
+						"z2": 1
+					},
+					"cbScaleYByLayer": 0.03125,
+					"transferQuantity": 32,
+					"bulkTransferQuantity": 128
+				}
+			}
+		],
+		"*-2": [
+			{
+				"name": "HayStorable",
+				"properties": {
+					"layout": "Stacking",
+					"placeRemoveSound": "game:sounds/block/plant",
+					"stackingModel": "block/haystorage",
+					"stackingTextures": {
+						"normal-side": "block/plant/hay/wet/normal-side-{type}",
+						"normal-top": "block/plant/hay/wet/normal-top-{type}",
+						"straw1": "block/plant/hay/wet/straw-{type}"
+					},
+					"modelItemsToStackSizeRatio": 0.5625,
+					"stackingCapacity": 256,
+					"maxStackingHeight": 1,
+					"collisionBox": {
+						"x1": 0,
+						"y1": 0,
+						"z1": 0,
+						"x2": 1,
+						"y2": 0.0625,
+						"z2": 1
+					},
+					"cbScaleYByLayer": 0.0625,
+					"transferQuantity": 16,
+					"bulkTransferQuantity": 64
+				}
+			}
+		],
+		"*-3": [
+			{
+				"name": "HayStorable",
+				"properties": {
+					"layout": "Stacking",
+					"placeRemoveSound": "game:sounds/block/plant",
+					"stackingModel": "block/haystorage",
+					"stackingTextures": {
+						"normal-side": "block/plant/hay/wet/normal-side-{type}",
+						"normal-top": "block/plant/hay/wet/normal-top-{type}",
+						"straw1": "block/plant/hay/wet/straw-{type}"
+					},
+					"modelItemsToStackSizeRatio": 1.125,
+					"stackingCapacity": 128,
+					"maxStackingHeight": 1,
+					"collisionBox": {
+						"x1": 0,
+						"y1": 0,
+						"z1": 0,
+						"x2": 1,
+						"y2": 0.0625,
+						"z2": 1
+					},
+					"cbScaleYByLayer": 0.125,
+					"transferQuantity": 8,
+					"bulkTransferQuantity": 32
+				}
+			}
+		],
+		"*-4": [
+			{
+				"name": "HayStorable",
+				"properties": {
+					"layout": "Stacking",
+					"placeRemoveSound": "game:sounds/block/plant",
+					"stackingModel": "block/haystorage",
+					"stackingTextures": {
+						"normal-side": "block/plant/hay/wet/normal-side-{type}",
+						"normal-top": "block/plant/hay/wet/normal-top-{type}",
+						"straw1": "block/plant/hay/wet/straw-{type}"
+					},
+					"modelItemsToStackSizeRatio": 2.25,
+					"stackingCapacity": 64,
+					"maxStackingHeight": 1,
+					"collisionBox": {
+						"x1": 0,
+						"y1": 0,
+						"z1": 0,
+						"x2": 1,
+						"y2": 0.0625,
+						"z2": 1
+					},
+					"cbScaleYByLayer": 0.25,
+					"transferQuantity": 4,
+					"bulkTransferQuantity": 16
+				}
+			}
+		],
+		"*-5": [
+			{
+				"name": "HayStorable",
+				"properties": {
+					"layout": "Stacking",
+					"placeRemoveSound": "game:sounds/block/plant",
+					"stackingModel": "block/haystorage",
+					"stackingTextures": {
+						"normal-side": "block/plant/hay/wet/normal-side-{type}",
+						"normal-top": "block/plant/hay/wet/normal-top-{type}",
+						"straw1": "block/plant/hay/wet/straw-{type}"
+					},
+					"modelItemsToStackSizeRatio": 4.5,
+					"stackingCapacity": 32,
+					"maxStackingHeight": 1,
+					"collisionBox": {
+						"x1": 0,
+						"y1": 0,
+						"z1": 0,
+						"x2": 1,
+						"y2": 0.0625,
+						"z2": 1
+					},
+					"cbScaleYByLayer": 0.5,
+					"transferQuantity": 2,
+					"bulkTransferQuantity": 8
+				}
+			}
+		],
+		"*-6": [
+			{
+				"name": "HayStorable",
+				"properties": {
+					"layout": "Stacking",
+					"placeRemoveSound": "game:sounds/block/plant",
+					"stackingModel": "block/haystorage",
+					"stackingTextures": {
+						"normal-side": "block/plant/hay/wet/normal-side-{type}",
+						"normal-top": "block/plant/hay/wet/normal-top-{type}",
+						"straw1": "block/plant/hay/wet/straw-{type}"
+					},
+					"modelItemsToStackSizeRatio": 9,
+					"stackingCapacity": 16,
+					"maxStackingHeight": 1,
+					"collisionBox": {
+						"x1": 0,
+						"y1": 0,
+						"z1": 0,
+						"x2": 1,
+						"y2": 0.0625,
+						"z2": 1
+					},
+					"cbScaleYByLayer": 1,
+					"transferQuantity": 1,
+					"bulkTransferQuantity": 4
+				}
+			}
+		],
+		"*-7": [
+			{
+				"name": "HayStorable",
+				"properties": {
+					"layout": "Stacking",
+					"placeRemoveSound": "game:sounds/block/plant",
+					"stackingModel": "block/haystorage",
+					"stackingTextures": {
+						"normal-side": "block/plant/hay/wet/normal-side-{type}",
+						"normal-top": "block/plant/hay/wet/normal-top-{type}",
+						"straw1": "block/plant/hay/wet/straw-{type}"
+					},
+					"modelItemsToStackSizeRatio": 18,
+					"stackingCapacity": 8,
+					"maxStackingHeight": 1,
+					"collisionBox": {
+						"x1": 0,
+						"y1": 0,
+						"z1": 0,
+						"x2": 1,
+						"y2": 0.0625,
+						"z2": 1
+					},
+					"cbScaleYByLayer": 2,
+					"transferQuantity": 1,
+					"bulkTransferQuantity": 4
+				}
+			}
+		]
+	},
+	"variantgroups": [
+		{
+			"code": "type",
+			"states": [ "spelt", "rice", "flax", "rye" ]
+		},
+		{
+			"code": "level",
+			"states": [ "1", "2", "3", "4", "5", "6", "7" ]
+		}
+	],
+	"creativeinventory": {
+		"general": [ "*" ],
+		"items": [ "*" ],
+		"artofgrowing": [ "*" ]
+	},
+	"shape": { "base": "item/food/grain/grainbundle" },
+	"texturesByType": {
+		"*rice-7": {
+			"normal9": { "base": "game:block/plant/crop/rice/normal10" }
+		},
+		"*-7": {
+			"normal9": { "base": "game:block/plant/crop/{type}/normal9" }
+		},
+		"*rice*": {
+			"normal9": { "base": "block/plant/crop/rice/{level}/normal10" }
+		},
+		"*": {
+			"normal9": { "base": "block/plant/crop/{type}/{level}/normal9" }
+		}
+	},
+	"maxstacksizeByType": {
+		"*1*": 512,
+		"*2*": 256,
+		"*3*": 128,
+		"*4*": 64,
+		"*5*": 32,
+		"*6*": 16,
+		"*7*": 8
+	},
+	"materialDensity": 258,
+	"transitionablePropsByType": {
+		"*": [
+			{
+				"type": "Dry",
+				"freshHours": { "avg": 0 },
+				"transitionHours": {
+					"avg": 120,
+					"var": 24
+				},
+				"transitionedStack": {
+					"type": "item",
+					"code": "drybundle-{type}-{level}"
+				},
+				"transitionRatio": 1
+			},
+			{
+				"type": "Perish",
+				"freshHours": { "avg": 84 },
+				"transitionHours": { "avg": 6 },
+				"transitionedStack": {
+					"type": "item",
+					"code": "game:thatch"
+				},
+				"transitionRatioByType": {
+					"*-1": 0.125,
+					"*-2": 0.25,
+					"*-3": 0.5,
+					"*-4": 1,
+					"*-5": 2,
+					"*-6": 4,
+					"*-7": 8
+				}
+			}
+		]
+	},
+	"guiTransform": {
+		"translation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"rotation": {
+			"x": 120,
+			"y": -34,
+			"z": 40
+		},
+		"origin": {
+			"x": 0.46,
+			"y": 0.2,
+			"z": 0.5
+		},
+		"scale": 1.77
+	},
+	"fpHandTransform": {
+		"rotation": {
+			"x": 84,
+			"y": 92,
+			"z": -30
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0.3,
+			"z": 0.6
+		},
+		"scale": 1.31
+	},
+	"tpHandTransform": {
+		"translation": {
+			"x": -1.11,
+			"y": -0.22,
+			"z": -0.66
+		},
+		"rotation": {
+			"x": -90,
+			"y": -14,
+			"z": -6
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0.1,
+			"z": 0.5
+		},
+		"scale": 0.64
+	},
+	"groundTransform": {
+		"translation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"rotation": {
+			"x": 90,
+			"y": 0,
+			"z": 0
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0.5,
+			"z": 0.61
+		},
+		"scale": 4
+	}
+}

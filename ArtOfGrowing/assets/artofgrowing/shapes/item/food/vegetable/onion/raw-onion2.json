@@ -1,0 +1,90 @@
+{
+	"editor": {
+		"allAngles": false,
+		"entityTextureMode": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+	},
+	"textures": {
+		"e5": "game:block/plant/crop/onion/e2",
+		"s5": "game:block/plant/crop/onion/s2",
+		"bulb": "game:block/plant/crop/onion/bulb"
+	},
+	"elements": [
+		{
+			"name": "onion 2",
+			"from": [ 7.5, 1.0, 7.5 ], 
+			"to": [ 8.5, 2.0, 8.5 ], 
+			"rotationOrigin": [ 8.8, 1.0, 9.0 ],
+			"faces": {
+				"north": { "texture": "#bulb", "uv": [ 5.5, 12.5, 6.5, 13.5 ] },
+				"east": { "texture": "#bulb", "uv": [ 12.0, 12.5, 13.0, 13.5 ] },
+				"south": { "texture": "#bulb", "uv": [ 7.0, 12.5, 8.0, 13.5 ] },
+				"west": { "texture": "#bulb", "uv": [ 11.0, 13.0, 12.0, 14.0 ] },
+				"up": { "texture": "#bulb", "uv": [ 11.5, 4.0, 12.5, 5.0 ] },
+				"down": { "texture": "#bulb", "uv": [ 5.0, 8.0, 6.0, 9.0 ] }
+			},
+			"children": [
+				{
+					"name": "onion 2 top",
+					"from": [ 0.12, 1.0, 0.12 ], 
+					"to": [ 0.87, 1.5, 0.87 ], 
+					"rotationOrigin": [ -0.75, -1.0, -0.75 ],
+					"faces": {
+						"north": { "texture": "#bulb", "uv": [ 7.0, 4.0, 7.5, 4.5 ] },
+						"east": { "texture": "#bulb", "uv": [ 7.0, 4.5, 7.5, 5.0 ] },
+						"south": { "texture": "#bulb", "uv": [ 11.0, 4.5, 11.5, 5.0 ] },
+						"west": { "texture": "#bulb", "uv": [ 0.5, 4.0, 1.0, 4.5 ] },
+						"up": { "texture": "#bulb", "uv": [ 11.5, 4.5, 12.0, 5.0 ] },
+						"down": { "texture": "#bulb", "uv": [ 9.0, 7.0, 9.5, 7.5 ], "enabled": false }
+					}
+				},
+				{
+					"name": "onion bottom",
+					"from": [ 0.12, -0.5, 0.12 ], 
+					"to": [ 0.87, 0.0, 0.87 ], 
+					"rotationOrigin": [ -0.75, 0.0, -0.75 ],
+					"faces": {
+						"north": { "texture": "#bulb", "uv": [ 12.5, 6.5, 13.0, 7.0 ] },
+						"east": { "texture": "#bulb", "uv": [ 0.5, 6.0, 1.0, 6.5 ] },
+						"south": { "texture": "#bulb", "uv": [ 9.5, 6.0, 10.0, 6.5 ] },
+						"west": { "texture": "#bulb", "uv": [ 3.0, 6.5, 3.5, 7.0 ] },
+						"up": { "texture": "#bulb", "uv": [ 3.0, 8.0, 3.5, 8.5 ], "enabled": false },
+						"down": { "texture": "#bulb", "uv": [ 10.0, 5.5, 10.5, 6.0 ] }
+					}
+				},
+				{
+					"name": "s 2",
+					"from": [ -5.55, 0.5, 0.25 ], 
+					"to": [ 7.45, 13.5, 0.25 ], 
+					"shade": false,
+					"rotationOrigin": [ 0.45, 1.0, 0.75 ],
+					"faces": {
+						"north": { "texture": "#null", "uv": [ 0.0, 0.0, 13.0, 13.0 ], "enabled": false },
+						"east": { "texture": "#null", "uv": [ 0.0, 0.0, 0.5, 13.0 ], "enabled": false },
+						"south": { "texture": "#s5", "uv": [ 2.0, 3.0, 15.0, 16.0 ] },
+						"west": { "texture": "#null", "uv": [ 0.0, 0.0, 0.5, 13.0 ], "enabled": false },
+						"up": { "texture": "#null", "uv": [ 0.0, 0.0, 13.0, 0.5 ], "enabled": false },
+						"down": { "texture": "#null", "uv": [ 0.0, 0.0, 13.0, 0.5 ], "enabled": false }
+					}
+				},
+				{
+					"name": "e 2",
+					"from": [ 0.45, 0.5, -6.55 ], 
+					"to": [ 0.45, 13.5, 6.45 ], 
+					"shade": false,
+					"rotationOrigin": [ 0.95, 1.0, 0.45 ],
+					"faces": {
+						"north": { "texture": "#null", "uv": [ 0.0, 0.0, 0.5, 13.0 ], "enabled": false },
+						"east": { "texture": "#e5", "uv": [ 2.0, 3.0, 15.0, 16.0 ] },
+						"south": { "texture": "#null", "uv": [ 0.0, 0.0, 0.5, 13.0 ], "enabled": false },
+						"west": { "texture": "#null", "uv": [ 0.0, 0.0, 13.0, 13.0 ], "enabled": false },
+						"up": { "texture": "#null", "uv": [ 0.0, 0.0, 0.5, 13.0 ], "enabled": false },
+						"down": { "texture": "#null", "uv": [ 0.0, 0.0, 0.5, 13.0 ], "enabled": false }
+					}
+				}
+			]
+		}
+	]}

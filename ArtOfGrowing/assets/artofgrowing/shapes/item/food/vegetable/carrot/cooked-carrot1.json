@@ -1,0 +1,58 @@
+{
+	"editor": {
+		"allAngles": false,
+		"entityTextureMode": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+	},
+	"textures": {
+		"bulb": "item/food/vegetable/cooked/carrot"
+	},
+	"elements": [
+		{
+			"name": "carrot",
+			"from": [ 7.75, 4.0, 7.75 ], 
+			"to": [ 8.25, 5.5, 8.25 ], 
+			"rotationOrigin": [ 8.0, 3.0, 8.1 ],
+			"faces": {
+				"north": { "texture": "#bulb", "uv": [ 11.0, 4.5, 11.5, 6.0 ], "rotation": 180 },
+				"east": { "texture": "#bulb", "uv": [ 1.0, 4.5, 1.5, 6.0 ], "rotation": 180 },
+				"south": { "texture": "#bulb", "uv": [ 0.0, 4.5, 0.5, 6.0 ], "rotation": 180 },
+				"west": { "texture": "#bulb", "uv": [ 6.5, 4.5, 7.0, 6.0 ], "rotation": 180 },
+				"up": { "texture": "#bulb", "uv": [ 9.5, 6.0, 10.0, 6.5 ] },
+				"down": { "texture": "#bulb", "uv": [ 4.5, 6.5, 5.0, 7.0 ], "windMode": [-1,-1,-1,-1] }
+			},
+			"children": [
+				{
+					"name": "carrot top",
+					"from": [ 0.1, 1.5, 0.1 ], 
+					"to": [ 0.45, 2.0, 0.45 ], 
+					"rotationOrigin": [ -0.5, -0.5, -0.5 ],
+					"faces": {
+						"north": { "texture": "#bulb", "uv": [ 13.0, 7.0, 13.5, 7.5 ] },
+						"east": { "texture": "#bulb", "uv": [ 2.0, 7.0, 2.5, 7.5 ] },
+						"south": { "texture": "#bulb", "uv": [ 8.5, 7.0, 9.0, 7.5 ] },
+						"west": { "texture": "#bulb", "uv": [ 3.0, 7.0, 3.5, 7.5 ] },
+						"up": { "texture": "#bulb", "uv": [ 7.0, 7.0, 7.5, 7.5 ] },
+						"down": { "texture": "#bulb", "uv": [ 9.0, 7.0, 9.5, 7.5 ], "enabled": false }
+					}
+				},
+				{
+					"name": "carrot tip",
+					"from": [ 0.1, -1.0, 0.1 ], 
+					"to": [ 0.45, 0.0, 0.45 ], 
+					"rotationOrigin": [ -0.5, 1.5, -0.5 ],
+					"faces": {
+						"north": { "texture": "#bulb", "uv": [ 12.0, 6.0, 12.5, 7.0 ] },
+						"east": { "texture": "#bulb", "uv": [ 5.0, 6.0, 5.5, 7.0 ] },
+						"south": { "texture": "#bulb", "uv": [ 4.0, 4.0, 4.5, 5.0 ] },
+						"west": { "texture": "#bulb", "uv": [ 3.0, 6.0, 3.5, 7.0 ] },
+						"up": { "texture": "#bulb", "uv": [ 12.0, 5.0, 12.5, 5.5 ], "enabled": false },
+						"down": { "texture": "#bulb", "uv": [ 9.0, 7.0, 9.5, 7.5 ], "windMode": [-1,-1,-1,-1] }
+					}
+				}
+			]
+		}
+	]}
