@@ -388,6 +388,13 @@ namespace ArtOfGrowing.Blocks
                             MouseButton = EnumMouseButton.Right,
                             HotKeyCode = null
                         },
+                        new WorldInteraction()
+                        {
+                            ActionLangCode = "artofgrowing:blockhelp-haystorage-interactone",
+                            MouseButton = EnumMouseButton.Right,
+                            HotKeyCode = "sitdown",
+                            RequireFreeHand = true
+                        },
 
                         new WorldInteraction()
                         {
@@ -401,7 +408,14 @@ namespace ArtOfGrowing.Blocks
                             ActionLangCode = "artofgrowing:blockhelp-haystorage-removebulk",
                             HotKeyCode = "ctrl",
                             MouseButton = EnumMouseButton.Right
-                        }
+                        },
+                        new WorldInteraction()
+                        {
+                            ActionLangCode = "artofgrowing:blockhelp-haystorage-interactbulk",
+                            MouseButton = EnumMouseButton.Right,
+                            HotKeyCodes = new string[] { "sitdown", "ctrl" },
+                            RequireFreeHand = true
+                        },
 
                     }.Append(base.GetPlacedBlockInteractionHelp(world, selection, forPlayer));
                 }

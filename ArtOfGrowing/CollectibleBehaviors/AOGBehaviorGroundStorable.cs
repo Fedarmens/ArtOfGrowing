@@ -33,6 +33,12 @@ namespace ArtOfGrowing.CollectibleBehaviors
         /// </summary>
         Stacking
     }
+    public enum AOGEnumDropType
+    {
+        Items,
+        Block,
+        None
+    }
 
 
     public class AOGGroundStorageProperties
@@ -61,6 +67,16 @@ namespace ArtOfGrowing.CollectibleBehaviors
 
         public int MaxFireable = 9999;
 
+        public int DropUse = 1;
+        public int DropBulk = 4;
+        public AOGEnumDropType CanDrop = AOGEnumDropType.None;
+        public AssetLocation DropBlock;
+        public AssetLocation DropItem;
+        public AssetLocation DropItem2;
+        public int DropCount = 1;
+        public int DropCount2 = 1;
+        public bool CanWater = false;
+
         public AOGGroundStorageProperties Clone()
         {
             return new AOGGroundStorageProperties()
@@ -80,7 +96,16 @@ namespace ArtOfGrowing.CollectibleBehaviors
                 CbScaleYByLayer = CbScaleYByLayer,
                 MaxFireable = MaxFireable,
                 SprintKey = SprintKey,
-                UpSolid = UpSolid
+                UpSolid = UpSolid,
+                CanDrop = CanDrop,
+                DropUse = DropUse,
+                DropBulk = DropBulk,
+                DropBlock = DropBlock,
+                DropItem = DropItem,
+                DropItem2 = DropItem2,
+                DropCount = DropCount,
+                DropCount2 = DropCount2,
+                CanWater = CanWater,
             };
         }
     }
@@ -125,7 +150,6 @@ namespace ArtOfGrowing.CollectibleBehaviors
                 }
             };
         }
-
 
 
         public static void Interact(ItemSlot itemslot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handHandling, ref EnumHandling handling)

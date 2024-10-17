@@ -31,7 +31,7 @@
 					"dropBulk": 8,
 					"canDrop": "Items",
 					"dropItem": "game:seeds-{type}",
-					"dropItem2": "game:thatch",
+					"dropItem2": "flaxbundle-dry",
 					"dropCount": 1,
 					"dropCount2": 1
 				}
@@ -67,7 +67,7 @@
 					"dropBulk": 8,
 					"canDrop": "Items",
 					"dropItem": "artofgrowing:seeds-{type}{level}",
-					"dropItem2": "game:thatch",
+					"dropItem2": "flaxbundle-dry",
 					"dropCount": 1,
 					"dropCount2": 1
 				}
@@ -103,7 +103,7 @@
 					"dropBulk": 8,
 					"canDrop": "Items",
 					"dropItem": "artofgrowing:seeds-{type}{level}",
-					"dropItem2": "game:thatch",
+					"dropItem2": "flaxbundle-dry",
 					"dropCount": 1,
 					"dropCount2": 1
 				}
@@ -139,7 +139,7 @@
 					"dropBulk": 8,
 					"canDrop": "Items",
 					"dropItem": "artofgrowing:seeds-{type}{level}",
-					"dropItem2": "game:thatch",
+					"dropItem2": "flaxbundle-dry",
 					"dropCount": 1,
 					"dropCount2": 1
 				}
@@ -175,7 +175,7 @@
 					"dropBulk": 8,
 					"canDrop": "Items",
 					"dropItem": "artofgrowing:seeds-{type}{level}",
-					"dropItem2": "game:thatch",
+					"dropItem2": "flaxbundle-dry",
 					"dropCount": 1,
 					"dropCount2": 1
 				}
@@ -211,7 +211,7 @@
 					"dropBulk": 8,
 					"canDrop": "Items",
 					"dropItem": "artofgrowing:seeds-{type}{level}",
-					"dropItem2": "game:thatch",
+					"dropItem2": "flaxbundle-dry",
 					"dropCount": 1,
 					"dropCount2": 1
 				}
@@ -244,10 +244,10 @@
 					"transferQuantity": 1,
 					"bulkTransferQuantity": 8,
 					"dropUse": 1,
-					"dropBulk": 8,
+					"dropBulk": 4,
 					"canDrop": "Items",
 					"dropItem": "artofgrowing:seeds-{type}{level}",
-					"dropItem2": "game:thatch",
+					"dropItem2": "flaxbundle-dry",
 					"dropCount": 1,
 					"dropCount2": 1
 				}
@@ -257,7 +257,7 @@
 	"variantgroups": [
 		{
 			"code": "type",
-			"states": [ "spelt", "rice", "rye" ]
+			"states": [ "flax" ]
 		},
 		{
 			"code": "level",

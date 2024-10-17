@@ -3,13 +3,42 @@
 	"behaviorsByType": {
 		"*-1": [
 			{
-				"name": "HayStorable",
+				"name": "AOGHayStorable",
 				"properties": {
 					"layout": "Stacking",
 					"placeRemoveSound": "game:sounds/block/plant",
 					"stackingModel": "block/haystorage",
 					"stackingTextures": {
-						"normal-side": "block/plant/hay/wet/normal-side-{type}",
+
+						"normal-top": "block/plant/hay/wet/normal-top-{type}",
+						"straw1": "block/plant/hay/wet/straw-{type}"
+					},
+					"modelItemsToStackSizeRatio": 0.140625,
+					"stackingCapacity": 1024,
+					"maxStackingHeight": 1,
+					"collisionBox": {
+						"x1": 0,
+						"y1": 0,
+						"z1": 0,
+						"x2": 1,
+						"y2": 0.0625,
+						"z2": 1
+					},
+					"cbScaleYByLayer": 0.015625,
+					"transferQuantity": 1,
+					"bulkTransferQuantity": 8
+				}
+			}
+		],
+		"*-2": [
+			{
+				"name": "AOGHayStorable",
+				"properties": {
+					"layout": "Stacking",
+					"placeRemoveSound": "game:sounds/block/plant",
+					"stackingModel": "block/haystorage",
+					"stackingTextures": {
+
 						"normal-top": "block/plant/hay/wet/normal-top-{type}",
 						"straw1": "block/plant/hay/wet/straw-{type}"
 					},
@@ -25,20 +54,20 @@
 						"z2": 1
 					},
 					"cbScaleYByLayer": 0.03125,
-					"transferQuantity": 32,
-					"bulkTransferQuantity": 128
+					"transferQuantity": 1,
+					"bulkTransferQuantity": 8
 				}
 			}
 		],
-		"*-2": [
+		"*-3": [
 			{
-				"name": "HayStorable",
+				"name": "AOGHayStorable",
 				"properties": {
 					"layout": "Stacking",
 					"placeRemoveSound": "game:sounds/block/plant",
 					"stackingModel": "block/haystorage",
 					"stackingTextures": {
-						"normal-side": "block/plant/hay/wet/normal-side-{type}",
+
 						"normal-top": "block/plant/hay/wet/normal-top-{type}",
 						"straw1": "block/plant/hay/wet/straw-{type}"
 					},
@@ -54,20 +83,20 @@
 						"z2": 1
 					},
 					"cbScaleYByLayer": 0.0625,
-					"transferQuantity": 16,
-					"bulkTransferQuantity": 64
+					"transferQuantity": 1,
+					"bulkTransferQuantity": 8
 				}
 			}
 		],
-		"*-3": [
+		"*-4": [
 			{
-				"name": "HayStorable",
+				"name": "AOGHayStorable",
 				"properties": {
 					"layout": "Stacking",
 					"placeRemoveSound": "game:sounds/block/plant",
 					"stackingModel": "block/haystorage",
 					"stackingTextures": {
-						"normal-side": "block/plant/hay/wet/normal-side-{type}",
+
 						"normal-top": "block/plant/hay/wet/normal-top-{type}",
 						"straw1": "block/plant/hay/wet/straw-{type}"
 					},
@@ -83,20 +112,20 @@
 						"z2": 1
 					},
 					"cbScaleYByLayer": 0.125,
-					"transferQuantity": 8,
-					"bulkTransferQuantity": 32
+					"transferQuantity": 1,
+					"bulkTransferQuantity": 8
 				}
 			}
 		],
-		"*-4": [
+		"*-5": [
 			{
-				"name": "HayStorable",
+				"name": "AOGHayStorable",
 				"properties": {
 					"layout": "Stacking",
 					"placeRemoveSound": "game:sounds/block/plant",
 					"stackingModel": "block/haystorage",
 					"stackingTextures": {
-						"normal-side": "block/plant/hay/wet/normal-side-{type}",
+
 						"normal-top": "block/plant/hay/wet/normal-top-{type}",
 						"straw1": "block/plant/hay/wet/straw-{type}"
 					},
@@ -112,20 +141,20 @@
 						"z2": 1
 					},
 					"cbScaleYByLayer": 0.25,
-					"transferQuantity": 4,
-					"bulkTransferQuantity": 16
+					"transferQuantity": 1,
+					"bulkTransferQuantity": 8
 				}
 			}
 		],
-		"*-5": [
+		"*-6": [
 			{
-				"name": "HayStorable",
+				"name": "AOGHayStorable",
 				"properties": {
 					"layout": "Stacking",
 					"placeRemoveSound": "game:sounds/block/plant",
 					"stackingModel": "block/haystorage",
 					"stackingTextures": {
-						"normal-side": "block/plant/hay/wet/normal-side-{type}",
+
 						"normal-top": "block/plant/hay/wet/normal-top-{type}",
 						"straw1": "block/plant/hay/wet/straw-{type}"
 					},
@@ -141,20 +170,20 @@
 						"z2": 1
 					},
 					"cbScaleYByLayer": 0.5,
-					"transferQuantity": 2,
+					"transferQuantity": 1,
 					"bulkTransferQuantity": 8
 				}
 			}
 		],
-		"*-6": [
+		"*-7": [
 			{
-				"name": "HayStorable",
+				"name": "AOGHayStorable",
 				"properties": {
 					"layout": "Stacking",
 					"placeRemoveSound": "game:sounds/block/plant",
 					"stackingModel": "block/haystorage",
 					"stackingTextures": {
-						"normal-side": "block/plant/hay/wet/normal-side-{type}",
+
 						"normal-top": "block/plant/hay/wet/normal-top-{type}",
 						"straw1": "block/plant/hay/wet/straw-{type}"
 					},
@@ -171,36 +200,7 @@
 					},
 					"cbScaleYByLayer": 1,
 					"transferQuantity": 1,
-					"bulkTransferQuantity": 4
-				}
-			}
-		],
-		"*-7": [
-			{
-				"name": "HayStorable",
-				"properties": {
-					"layout": "Stacking",
-					"placeRemoveSound": "game:sounds/block/plant",
-					"stackingModel": "block/haystorage",
-					"stackingTextures": {
-						"normal-side": "block/plant/hay/wet/normal-side-{type}",
-						"normal-top": "block/plant/hay/wet/normal-top-{type}",
-						"straw1": "block/plant/hay/wet/straw-{type}"
-					},
-					"modelItemsToStackSizeRatio": 18,
-					"stackingCapacity": 8,
-					"maxStackingHeight": 1,
-					"collisionBox": {
-						"x1": 0,
-						"y1": 0,
-						"z1": 0,
-						"x2": 1,
-						"y2": 0.0625,
-						"z2": 1
-					},
-					"cbScaleYByLayer": 2,
-					"transferQuantity": 1,
-					"bulkTransferQuantity": 4
+					"bulkTransferQuantity": 8
 				}
 			}
 		]

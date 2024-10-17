@@ -55,7 +55,11 @@
   </Content>
   <None Remove="assets\artofgrowing\blocktypes\haystorage.json" />
   <None Remove="assets\artofgrowing\itemtypes\grain\drybundle.json" />
+  <None Remove="assets\artofgrowing\itemtypes\grain\dryflax.json" />
+  <None Remove="assets\artofgrowing\itemtypes\grain\flaxbundle.json" />
+  <None Remove="assets\artofgrowing\itemtypes\grain\pressedmash.json" />
   <None Remove="assets\artofgrowing\patches\thatch.json" />
+  <None Remove="assets\artofgrowing\recipes\grid\flaxfibers.json" />
   <None Remove="assets\artofgrowing\textures\block\plant\crop\rice\dry\dry1.png" />
   <None Remove="assets\artofgrowing\textures\block\plant\crop\rice\dry\dry2.png" />
   <None Remove="assets\artofgrowing\textures\block\plant\crop\rice\dry\dry3.png" />

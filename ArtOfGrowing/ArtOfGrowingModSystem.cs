@@ -17,10 +17,10 @@ namespace ArtOfGrowing
         {
             base.Start(api);
 
-            api.RegisterBlockClass("BlockHayStorage", typeof(AOGBlockGroundStorage));
-            api.RegisterBlockEntityClass("HayStorage", typeof(AOGBlockEntityGroundStorage));
-            api.RegisterCollectibleBehaviorClass("HayStorable", typeof(AOGCollectibleBehaviorGroundStorable));
-            api.World.Logger.StoryEvent(Lang.Get("artofgrowing:It grows..."));
+            api.RegisterBlockClass("AOGBlockHayStorage", typeof(AOGBlockGroundStorage));
+            api.RegisterBlockEntityClass("AOGHayStorage", typeof(AOGBlockEntityGroundStorage));
+            api.RegisterCollectibleBehaviorClass("AOGHayStorable", typeof(AOGCollectibleBehaviorGroundStorable));
+            api.World.Logger.StoryEvent(Lang.Get("It grows..."));
         }        
     }
 }

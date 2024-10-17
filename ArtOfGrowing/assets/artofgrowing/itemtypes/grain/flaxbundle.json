@@ -1,105 +1,241 @@
 {
-	code: "flaxbundle",
-	variantgroups: [
-		{ code: "type", states: ["dry", "empty", "wet", "soft" ] },
-		{ code: "level", states: ["1", "2", "3", "4", "5", "6", "7"] }
+	"code": "flaxbundle",
+	"behaviorsByType": {
+		"*-dry": [
+			{
+				"name": "AOGHayStorable",
+				"properties": {
+					"layout": "Stacking",
+					"placeRemoveSound": "game:sounds/block/plant",
+					"stackingModel": "block/haystorage",
+					"stackingTextures": {
+
+						"normal-top": "block/plant/hay/flax/normal-top-flax-{type}",
+						"straw1": "block/plant/hay/flax/straw-flax-{type}"
+					},
+					"modelItemsToStackSizeRatio": 1.125,
+					"stackingCapacity": 128,
+					"maxStackingHeight": 1,
+					"collisionBox": {
+						"x1": 0,
+						"y1": 0,
+						"z1": 0,
+						"x2": 1,
+						"y2": 0.0625,
+						"z2": 1
+					},
+					"cbScaleYByLayer": 0.125,
+					"transferQuantity": 1,
+					"bulkTransferQuantity": 8,
+					"canWater": true
+				}
+			}
+		],
+		"*": [
+			{
+				"name": "AOGHayStorable",
+				"properties": {
+					"layout": "Stacking",
+					"placeRemoveSound": "game:sounds/block/plant",
+					"stackingModel": "block/haystorage",
+					"stackingTextures": {
+
+						"normal-top": "block/plant/hay/flax/normal-top-flax-{type}",
+						"straw1": "block/plant/hay/flax/straw-flax-{type}"
+					},
+					"modelItemsToStackSizeRatio": 1.125,
+					"stackingCapacity": 128,
+					"maxStackingHeight": 1,
+					"collisionBox": {
+						"x1": 0,
+						"y1": 0,
+						"z1": 0,
+						"x2": 1,
+						"y2": 0.0625,
+						"z2": 1
+					},
+					"cbScaleYByLayer": 0.125,
+					"transferQuantity": 1,
+					"bulkTransferQuantity": 8
+				}
+			}
+		]
+	},
+	"variantgroups": [
+		{
+			"code": "type",
+			"states": [ "dry", "wet", "clear", "soft" ]
+		}
 	],
-	creativeinventory: { "general": ["*"], "items": ["*"], "artofgrowing": ["*"] },
-	shape: { base: "item/food/grain/grainbundle" },
-	texturesByType: {
-		"*": { 
-			normal9: { base: "block/plant/crop/flax/{type}/{type}{level}" }
+	"creativeinventory": {
+		"general": [ "*" ],
+		"items": [ "*" ],
+		"artofgrowing": [ "*" ]
+	},
+	"shape": { "base": "game:item/resource/thatch" },
+	"texturesByType": {
+		"*": {
+			"bundle": { "base": "block/plant/hay/flax/normal-top-flax-{type}" }
 		}
 	},
-	maxstacksizeByType: {
-		"*1*": 512,
-		"*2*": 256,
-		"*3*": 128,
-		"*4*": 64,
-		"*5*": 32,
-		"*6*": 16,
-		"*7*": 8
+	"maxstacksizeByType": {
+		"*": 64
 	},
-	materialDensity: 258,
-	transitionablePropsByType: {	
-		"*wet-*": [{
-			type: "Dry",
-			freshHours: { avg: 0 },
-			transitionHours: { avg: 72 },
-			transitionedStack: { type: "item", code: "flaxbundle-soft-{level}" },
-			transitionRatio: 1
-		}],		
-		"*dry-1": [{
-			type: "Perish",
-			freshHours: { avg:  1080 },
-			transitionHours: { avg: 112 },
-			transitionedStack: { type: "item", code: "game:rot" },
-			transitionRatio: 0.01
-		}],		
-		"*dry-2": [{
-			type: "Perish",
-			freshHours: { avg:  1080 },
-			transitionHours: { avg: 112 },
-			transitionedStack: { type: "item", code: "game:rot" },
-			transitionRatio: 0.03
-		}],		
-		"*dry-3": [{
-			type: "Perish",
-			freshHours: { avg:  1080 },
-			transitionHours: { avg: 112 },
-			transitionedStack: { type: "item", code: "game:rot" },
-			transitionRatio: 0.06
-		}],		
-		"*dry-4": [{
-			type: "Perish",
-			freshHours: { avg:  1080 },
-			transitionHours: { avg: 112 },
-			transitionedStack: { type: "item", code: "game:rot" },
-			transitionRatio: 0.12
-		}],		
-		"*dry-5": [{
-			type: "Perish",
-			freshHours: { avg:  1080 },
-			transitionHours: { avg: 112 },
-			transitionedStack: { type: "item", code: "game:rot" },
-			transitionRatio: 0.25
-		}],		
-		"*dry-6": [{
-			type: "Perish",
-			freshHours: { avg:  1080 },
-			transitionHours: { avg: 112 },
-			transitionedStack: { type: "item", code: "game:rot" },
-			transitionRatio: 0.5
-		}],		
-		"*dry-7": [{
-			type: "Perish",
-			freshHours: { avg:  1080 },
-			transitionHours: { avg: 112 },
-			transitionedStack: { type: "item", code: "game:rot" },
-			transitionRatio: 1
-		}]
+	"materialDensity": 258,
+	"attributesByType": {
+		"*-soft": {			
+			"juiceablePropertiesByType": {
+				"*-soft": {
+					"litresPerItem": 0.25,
+					"liquidStack": {
+						"type": "item",
+						"code": "game:waterportion",
+						"stacksize": 1
+					},
+					"pressedStack": {
+						"type": "item",
+						"code": "pressedmash-flaxfibres",
+						"stacksize": 1
+					}
+				}
+			}
+		}
 	},
-	guiTransform: {
-		translation: { x: 0, y: 0, z: 0 },
-		rotation: { x: 120, y: -34, z: 40 },
-		origin: { x: 0.46, y: 0.2, z: 0.5 },
-		scale: 1.77
+	"transitionablePropsByType": {
+		"*-dry": [
+			{
+				"type": "Perish",
+				"freshHours": { "avg": 336 },
+				"transitionHours": { "avg": 6 },
+				"transitionedStack": {
+					"type": "item",
+					"code": "game:thatch"
+				},
+				"transitionRatio": 1
+			},
+			{
+				"type": "Melt",
+				"freshHours": { "avg": 0 },
+				"transitionHours": { "avg": 672 },
+				"transitionedStack": {
+					"type": "item",
+					"code": "flaxbundle-wet"
+				},
+				"transitionRatio": 1
+			}
+		],
+		"*-wet": [
+			{
+				"type": "Perish",
+				"freshHours": { "avg": 72 },
+				"transitionHours": { "avg": 6 },
+				"transitionedStack": {
+					"type": "item",
+					"code": "game:thatch"
+				},
+				"transitionRatio": 1
+			}
+		],
+		"*-clear": [
+			{
+				"type": "Perish",
+				"freshHours": { "avg": 72 },
+				"transitionHours": { "avg": 6 },
+				"transitionedStack": {
+					"type": "item",
+					"code": "game:thatch"
+				},
+				"transitionRatio": 1
+			},
+			{
+				"type": "dry",
+				"freshHours": { "avg": 0 },
+				"transitionHours": { "avg": 96 },
+				"transitionedStack": {
+					"type": "item",
+					"code": "flaxbundle-soft"
+				},
+				"transitionRatio": 1
+			}
+		],
+		"*-soft": [
+			{
+				"type": "Perish",
+				"freshHours": { "avg": 72 },
+				"transitionHours": { "avg": 6 },
+				"transitionedStack": {
+					"type": "item",
+					"code": "game:thatch"
+				},
+				"transitionRatio": 1
+			}
+		]
 	},
-	fpHandTransform: {
-		rotation: { x: 84, y: 92, z: -30 },
-		origin: { x: 0.5, y: 0.3, z: 0.6 },
-		scale: 1.31
+	"guiTransform": {
+		"translation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"rotation": {
+			"x": -53,
+			"y": -38,
+			"z": 31
+		},
+		"origin": {
+			"x": 0.46,
+			"y": 0.2,
+			"z": 0.5
+		},
+		"scale": 1.77
 	},
-	tpHandTransform: {
-		translation: { x: -1.11, y: -0.22, z: -0.66 },
-		rotation: { x: -90, y: -14, z: -6 },
-		origin: { x: 0.5, y: 0.1, z: 0.5 },
-		scale: 0.64
+	"fpHandTransform": {
+		"rotation": {
+			"x": 84,
+			"y": 92,
+			"z": -30
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0.3,
+			"z": 0.6
+		},
+		"scale": 1.31
 	},
-	groundTransform: {
-		translation: { x: 0, y: 0, z: 0 },
-		rotation: { x: 90, y: 0, z: 0 },
-		origin: { x: 0.5, y: 0.5, z: 0.61 },
-		scale: 4
+	"tpHandTransform": {
+		"translation": {
+			"x": -1.01,
+			"y": -0.22,
+			"z": -0.89
+		},
+		"rotation": {
+			"x": -90,
+			"y": -14,
+			"z": -6
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0.1,
+			"z": 0.5
+		},
+		"scale": 0.44
+	},
+	"groundTransform": {
+		"translation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"rotation": {
+			"x": 90,
+			"y": 0,
+			"z": 0
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0.5,
+			"z": 0.61
+		},
+		"scale": 3.5
 	}
 }

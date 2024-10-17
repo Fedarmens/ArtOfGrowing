@@ -1,0 +1,23 @@
+[
+	{
+		"code": "flaxbundle-clear",
+		"ingredients": [
+			{
+				"type": "item",
+				"code": "game:waterportion",
+				"litres": 1,
+				"consumeLitres": 0
+			},
+			{
+				"type": "item",
+				"code": "flaxbundle-wet",
+				"quantity": 1
+			}
+		],
+		"output": {
+			"type": "item",
+			"code": "flaxbundle-clear",
+			"quantity": 1
+		}
+	}
+]

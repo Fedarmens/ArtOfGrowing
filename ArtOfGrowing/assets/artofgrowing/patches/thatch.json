@@ -5,18 +5,17 @@
     "value": {
       "*": [
         {
-          "name": "HayStorable",
+          "name": "AOGHayStorable",
           "properties": {
             "layout": "Stacking",
             "placeRemoveSound": "game:sounds/block/plant",
             "stackingModel": "artofgrowing:block/haystorage",
             "stackingTextures": {
-              "normal-side": "block/plant/grassroofing/normal-side",
               "normal-top": "block/plant/grassroofing/normal-top",
               "straw1": "block/plant/grassroofing/straw1"
             },
-            "modelItemsToStackSizeRatio": 2.25,
-            "stackingCapacity": 64,
+            "modelItemsToStackSizeRatio": 1.125,
+            "stackingCapacity": 128,
             "maxStackingHeight": 1,
             "collisionBox": {
               "x1": 0,
@@ -26,9 +25,12 @@
               "y2": 0.0625,
               "z2": 1
             },
-            "cbScaleYByLayer": 0.25,
-            "transferQuantity": 4,
-            "bulkTransferQuantity": 16
+            "cbScaleYByLayer": 0.125,
+            "transferQuantity": 1,
+            "bulkTransferQuantity": 8,
+            "dropUse": 8,
+            "canDrop": "Block",
+            "dropBlock": "game:hay-normal-ud"
           }
         }
       ]

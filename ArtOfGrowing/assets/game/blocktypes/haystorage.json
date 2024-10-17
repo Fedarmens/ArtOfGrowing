@@ -15,8 +15,8 @@
 			}
 		}
 	],
-	"class": "BlockHayStorage",
-	"entityClass": "HayStorage",
+	"class": "AOGBlockHayStorage",
+	"entityClass": "AOGHayStorage",
 	"shape": {
 		"base": "game:block/basic/invisible"
 	},
@@ -24,7 +24,12 @@
 	"sidesolid": { "all": false },
 	"sideopaque": { "all": false },
 	"faceCullMode": "NeverCull",
-	"blockmaterial": "Wood",
+	"blockmaterial": "Plant",
+	"materialDensity": 200,
+	"combustibleProps": {
+		"burnTemperature": 600,
+		"burnDuration": 5
+	},
 	"creativeinventory": { "general": [ "" ] },
 	"lightAbsorption": 0,
 	"drops": []

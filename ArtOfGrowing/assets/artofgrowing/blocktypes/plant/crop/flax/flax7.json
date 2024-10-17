@@ -48,7 +48,10 @@
 	rainPermeable: false,
 	dropsByType: {
 		"*-9": [
-			{ type: "item", code: "grainbundle-flax-7", quantity: { avg: 8, var: 1 }  }
+			{ type: "item", code: "grainbundle-flax-7", quantity: { avg: 5, var: 2 }  },
+			{ type: "item", code: "grainbundle-flax-6", quantity: { avg: 1, var: 1 }  },
+			{ type: "item", code: "grainbundle-flax-5", quantity: { avg: 2, var: 2 }  },
+			{ type: "item", code: "grainbundle-flax-4", quantity: { avg: 3, var: 3 }  }
 		],
 		"*": [
 			{ type: "item", code: "game:drygrass", quantity: { avg: 0.7 }  }

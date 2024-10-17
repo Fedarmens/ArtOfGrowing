@@ -7,15 +7,40 @@ using System.Text;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
+using Vintagestory.API.Server;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
 using Vintagestory.GameContent;
+using System.Collections;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Diagnostics.Metrics;
 
 namespace ArtOfGrowing.BlockEntites
 {
 
     public class AOGBlockEntityGroundStorage : BlockEntityDisplay, IBlockEntityContainer, ITexPositionSource, IRotatable
     {
+        Block block;
+        RoomRegistry roomReg;
+        public override void Initialize(ICoreAPI api)
+        {
+            capi = api as ICoreClientAPI;
+            block = api.World.BlockAccessor.GetBlock(Pos);
+            base.Initialize(api);
+            RegisterGameTickListener(OnTick, 200);
+
+            roomReg = Api.ModLoader.GetModSystem<RoomRegistry>();
+
+            Inventory.OnAcquireTransitionSpeed = Inventory_OnAcquireTransitionSpeed;
+
+            DetermineStorageProperties(null);
+
+            if (capi != null)
+            {
+                updateMeshes();
+                //initMealRandomizer();
+            }
+        }
         public object inventoryLock = new object(); // Because OnTesselation runs in another thread
 
         protected InventoryGeneric inventory;
@@ -54,7 +79,6 @@ namespace ArtOfGrowing.BlockEntites
                 return 0;
             }
         }
-
         public int TotalStackSize
         {
             get
@@ -81,14 +105,95 @@ namespace ArtOfGrowing.BlockEntites
         }
         protected override float Inventory_OnAcquireTransitionSpeed(EnumTransitionType transType, ItemStack stack, float baseMul)
         {
-            float positionAwarePerishRate = Api != null && transType == EnumTransitionType.Perish ? GetPerishRate() : 1;
-            if (transType == EnumTransitionType.Dry || transType == EnumTransitionType.Melt) positionAwarePerishRate = 2;
+            float positionAwarePerishRate = Api != null && transType == EnumTransitionType.Perish ? GetPerishRate() : 1; 
+            BlockPos sealevelpos = Pos.Copy();
+            sealevelpos.Y = Api.World.SeaLevel;
+
+            float temperature = temperatureCached;
+            if (temperature < -999f)
+            {
+                temperature = Api.World.BlockAccessor.GetClimateAt(sealevelpos, EnumGetClimateMode.ForSuppliedDate_TemperatureOnly, Api.World.Calendar.TotalDays).Temperature;
+                if (Api.Side == EnumAppSide.Server) temperatureCached = temperature;   // Cache the temperature for the remainder of this tick
+            }
+
+            if (room == null)
+            {
+                room = roomReg.GetRoomForPosition(Pos);
+            }
+
+            float soilTempWeight = 0f;
+            float skyLightProportion = (float)room.SkylightCount / Math.Max(1, room.SkylightCount + room.NonSkylightCount);   // avoid any risk of divide by zero
+
+            if (room.IsSmallRoom)
+            {
+                soilTempWeight = 1f;
+                // If there's too much skylight, it's less cellar-like
+                soilTempWeight -= 0.4f * skyLightProportion;
+                // If non-cooling blocks exceed cooling blocks, it's less cellar-like
+                soilTempWeight -= 0.5f * GameMath.Clamp((float)room.NonCoolingWallCount / Math.Max(1, room.CoolingWallCount), 0f, 1f);
+            }
+
+            int lightlevel = Api.World.BlockAccessor.GetLightLevel(Pos, EnumLightLevelType.OnlySunLight);
+
+            // light level above 12 makes it additionally warmer, especially when part of a cellar or a greenhouse
+            float lightImportance = 0.1f;
+            // light in small fully enclosed rooms has a big impact
+            if (room.IsSmallRoom) lightImportance += 0.3f * soilTempWeight + 1.75f * skyLightProportion;
+            // light in large most enclosed rooms (e.g. houses, greenhouses) has medium impact
+            else if (room.ExitCount <= 0.1f * (room.CoolingWallCount + room.NonCoolingWallCount)) lightImportance += 1.25f * skyLightProportion;
+            // light outside rooms (e.g. chests on world surface) has low impact but still warms them above base air temperature
+            else lightImportance += 0.5f * skyLightProportion;
+            lightImportance = GameMath.Clamp(lightImportance, 0f, 1.5f);    
+
+            float airTemp = temperature + GameMath.Clamp(lightlevel - 11, 0, 10) * lightImportance;
+
+            // Lets say deep soil temperature is a constant 5°C
+            float cellarTemp = 5;
+
+            // How good of a cellar it is depends on how much rock or soil was used on he cellars walls
+            float hereTemp = GameMath.Lerp(airTemp, cellarTemp, soilTempWeight);
+
+            // For fairness lets say if its colder outside, use that temp instead
+            hereTemp = Math.Min(hereTemp, airTemp);
+
+            bool water = false;
+            bool canWater = StorageProps.CanWater;
+            Api.World.BlockAccessor.SearchFluidBlocks(
+                new BlockPos(Pos.X, Pos.Y, Pos.Z),
+                new BlockPos(Pos.X, Pos.Y, Pos.Z),
+                (block, pos) =>
+                {
+                    if (block.LiquidCode == "water") water = true;
+                    return true;
+                }
+            );
+
+
+            // Some neat curve to turn the temperature into a spoilage rate
+            // http://fooplot.com/#W3sidHlwZSI6MCwiZXEiOiJtYXgoMC4xLG1pbigyLjUsM14oeC8xOS0xLjIpKS0wLjEpIiwiY29sb3IiOiIjMDAwMDAwIn0seyJ0eXBlIjoxMDAwLCJ3aW5kb3ciOlsiLTIwIiwiNDAiLCIwIiwiMyJdLCJncmlkIjpbIjIuNSIsIjAuMjUiXX1d
+            // max(0.1, min(2.5, 3^(x/15 - 1.2))-0.1)
+            if (transType == EnumTransitionType.Dry && !water) positionAwarePerishRate = Math.Max(0.1f, Math.Min(2.4f, (float)Math.Pow(3, hereTemp / 19 - 1.2) - 0.1f)) * 4;
+            if (transType == EnumTransitionType.Melt && water && canWater) positionAwarePerishRate = 4;
 
             return baseMul * positionAwarePerishRate;
         }
         public override float GetPerishRate()
         {
-            float rate = 1;    
+
+            float rate = 1;
+            bool water = false;
+            bool canWater = StorageProps.CanWater;
+            Api.World.BlockAccessor.SearchFluidBlocks(
+                new BlockPos(Pos.X, Pos.Y, Pos.Z),
+                new BlockPos(Pos.X, Pos.Y, Pos.Z),
+                (block, pos) =>
+                {
+                    if (block.LiquidCode == "water") water = true;
+                    return true;
+                }
+            );
+            if (water && !canWater) rate = 4;
+
             return rate;
         }
 
@@ -162,22 +267,6 @@ namespace ArtOfGrowing.BlockEntites
             forceStorageProps = true;
         }
 
-
-        public override void Initialize(ICoreAPI api)
-        {
-            capi = api as ICoreClientAPI;
-            base.Initialize(api);
-
-            Inventory.OnAcquireTransitionSpeed = Inventory_OnAcquireTransitionSpeed;
-
-            DetermineStorageProperties(null);
-
-            if (capi != null)
-            {
-                updateMeshes();
-                //initMealRandomizer();
-            }
-        }
         public Cuboidf[] GetSelectionBoxes()
         {
             return selBoxes;
@@ -412,13 +501,13 @@ namespace ArtOfGrowing.BlockEntites
             }
 
             bool sneaking = byPlayer.Entity.Controls.ShiftKey;
-
+            bool sitting = byPlayer.Entity.Controls.FloorSitting;
 
             ItemSlot hotbarSlot = byPlayer.InventoryManager.ActiveHotbarSlot;
 
-            if (sneaking && hotbarSlot.Empty) return false;
 
-            if (sneaking && TotalStackSize >= Capacity)
+            if (sneaking && hotbarSlot.Empty) return false;
+            /*if (sneaking && TotalStackSize >= Capacity)
             {
                 Block pileblock = Api.World.BlockAccessor.GetBlock(Pos);
                 Block aboveblock = Api.World.BlockAccessor.GetBlock(abovePos);
@@ -433,7 +522,7 @@ namespace ArtOfGrowing.BlockEntites
                 }
 
                 return false;
-            }
+            }*/
 
 
             bool equalStack = inventory[0].Empty || hotbarSlot.Itemstack != null && hotbarSlot.Itemstack.Equals(Api.World, inventory[0].Itemstack, GlobalConstants.IgnoredStackAttributes);
@@ -448,6 +537,10 @@ namespace ArtOfGrowing.BlockEntites
                 if (sneaking)
                 {
                     return TryPutItem(byPlayer);
+                }
+                if (sitting)
+                {
+                    return TryInteract(byPlayer);
                 }
                 else
                 {
@@ -506,14 +599,85 @@ namespace ArtOfGrowing.BlockEntites
                 if (collBoxes != null && collBoxes.Length > 0 && CollisionTester.AabbIntersect(collBoxes[0], Pos.X, Pos.Y, Pos.Z, player.Entity.SelectionBox, player.Entity.SidedPos.XYZ))
                 {
                     player.Entity.SidedPos.Y += collBoxes[0].Y2 - (player.Entity.SidedPos.Y - (int)player.Entity.SidedPos.Y);
-                }
-
-                
+                }          
 
                 return true;
             }
 
             return false;
+        }
+        public bool TryInteract(IPlayer player)
+        {
+            bool takeBulk = player.Entity.Controls.CtrlKey;
+            int dropUse = StorageProps.DropUse;
+            int dropCount = StorageProps.DropCount;
+            int dropCount2 = StorageProps.DropCount2;
+            if (takeBulk)
+            {
+                dropUse = StorageProps.DropUse * StorageProps.DropBulk;
+                dropCount = StorageProps.DropCount * StorageProps.DropBulk;
+                dropCount2 = StorageProps.DropCount2 * StorageProps.DropBulk;
+            }
+            ItemSlot hotbarSlot = player.InventoryManager.ActiveHotbarSlot;
+
+            if (hotbarSlot.Itemstack != null) return false;
+
+            switch (StorageProps.CanDrop)
+            {
+                case AOGEnumDropType.Items:
+                    if (inventory[0].Itemstack.StackSize >= dropUse)
+                    {
+                        var dropItem = StorageProps.DropItem.Clone();
+                        var dropItem2 = StorageProps.DropItem2.Clone();
+                        ItemStack dropI = new(Api.World.GetItem(dropItem))
+                        {
+                            StackSize = dropCount
+                        };
+                        if (player.InventoryManager.TryGiveItemstack(dropI))
+                        {
+                            inventory[0].Itemstack.StackSize = inventory[0].Itemstack.StackSize - dropUse;
+                            player.Entity.World.SpawnItemEntity(dropI, player.Entity.Pos.XYZ.AddCopy(0, 0.5, 0));
+                        }
+                        ItemStack dropI2 = new(Api.World.GetItem(dropItem2))
+                        {
+                            StackSize = dropCount2
+                        };
+                        if (player.InventoryManager.TryGiveItemstack(dropI2))
+                        {
+                            player.Entity.World.SpawnItemEntity(dropI2, player.Entity.Pos.XYZ.AddCopy(0, 0.5, 0));
+                        }
+                    }
+                    break;
+                case AOGEnumDropType.Block:
+                    if (inventory[0].Itemstack.StackSize >= dropUse)
+                    {
+                        var dropBlock = StorageProps.DropBlock.Clone();
+                        ItemStack dropB = new(Api.World.GetBlock(dropBlock))
+                        {
+                            StackSize = dropCount
+                        };
+                        if (player.InventoryManager.TryGiveItemstack(dropB))
+                        {
+                            inventory[0].Itemstack.StackSize = inventory[0].Itemstack.StackSize - dropUse;
+                            player.Entity.World.SpawnItemEntity(dropB, player.Entity.Pos.XYZ.AddCopy(0, 0.5, 0));
+                        }
+                    }
+                    break;
+            }     
+            
+
+            if (TotalStackSize == 0)
+            {
+                Api.World.BlockAccessor.SetBlock(0, Pos);
+            }
+
+            Api.World.PlaySoundAt(StorageProps.PlaceRemoveSound, Pos.X, Pos.Y, Pos.Z, null, 0.88f + (float)Api.World.Rand.NextDouble() * 0.24f, 16);
+
+            MarkDirty();
+
+            (player as IClientPlayer)?.TriggerFpAnimation(EnumHandInteract.HeldItemInteract);
+
+            return true;
         }
 
         public bool TryTakeItem(IPlayer player)
@@ -605,81 +769,28 @@ namespace ArtOfGrowing.BlockEntites
 
             return true;
         }
-
-
-        public override void FromTreeAttributes(ITreeAttribute tree, IWorldAccessor worldForResolving)
-        {
-            base.FromTreeAttributes(tree, worldForResolving);
-            clientsideFirstPlacement = false;
-
-            forceStorageProps = tree.GetBool("forceStorageProps");
-            if (forceStorageProps)
-            {
-                StorageProps = JsonUtil.FromString<AOGGroundStorageProperties>(tree.GetString("storageProps"));
-            }
-
-            overrideLayout = null;
-            if (tree.HasAttribute("overrideLayout"))
-            {
-                overrideLayout = (AOGEnumGroundStorageLayout)tree.GetInt("overrideLayout");
-            }
-
-            if (this.Api != null)
-            {
-                DetermineStorageProperties(null);
-            }
-
-            MeshAngle = tree.GetFloat("meshAngle");
-            AttachFace = BlockFacing.ALLFACES[tree.GetInt("attachFace")];
-
-
-            // Do this last!!!  Prevents bug where initially drawn with wrong rotation
-            RedrawAfterReceivingTreeAttributes(worldForResolving);     // Redraw on client after we have completed receiving the update from server
-        }
-
-        public override void ToTreeAttributes(ITreeAttribute tree)
-        {
-            base.ToTreeAttributes(tree);
-
-            tree.SetBool("forceStorageProps", forceStorageProps);
-            if (forceStorageProps)
-            {
-                tree.SetString("storageProps", JsonUtil.ToString(StorageProps));
-            }
-            if (overrideLayout != null)
-            {
-                tree.SetInt("overrideLayout", (int)overrideLayout);
-            }
-
-            tree.SetFloat("meshAngle", MeshAngle);
-            tree.SetInt("attachFace", AttachFace?.Index ?? 0);
-        }
-
-
-        public override void OnBlockBroken(IPlayer byPlayer = null)
-        {
-            // Handled by block.GetDrops()
-            /*if (Api.World.Side == EnumAppSide.Server)
-            {
-                inventory.DropAll(Pos.ToVec3d().Add(0.5, 0.5, 0.5), 4);
-            }*/
-        }
-
-
-
         public virtual string GetBlockName()
         {
             var props = StorageProps;
             if (props == null || inventory.Empty) return Lang.Get("artofgrowing:Empty Hay");
             return Lang.Get("artofgrowing:Hay Storage");
         }
-
         public override void GetBlockInfo(IPlayer forPlayer, StringBuilder dsc)
         {
             float ripenRate = GameMath.Clamp(((1 - GetPerishRate()) - 0.5f) * 3, 0, 1);
             if (inventory.Empty) return;
 
             string[] contentSummary = getContentSummary();
+            bool water = false;
+            Api.World.BlockAccessor.SearchFluidBlocks(
+                new BlockPos(Pos.X, Pos.Y, Pos.Z),
+                new BlockPos(Pos.X, Pos.Y, Pos.Z),
+                (block, pos) =>
+                {
+                    if (block.LiquidCode == "water") water = true;
+                    return true;
+                }
+            );
 
             ItemStack stack = inventory.FirstNonEmptySlot.Itemstack;
             // Only add supplemental info for non-BlockEntities (otherwise it will be wrong or will get into a recursive loop, because right now this BEGroundStorage is the BlockEntity)
@@ -692,6 +803,8 @@ namespace ArtOfGrowing.BlockEntites
                 foreach (var line in contentSummary) dsc.AppendLine(line);
             }
             dsc.Append(PerishableInfoCompact(Api, inventory.FirstNonEmptySlot, ripenRate));
+            if (!water) dsc.Append(DryInfoCompact(Api, inventory.FirstNonEmptySlot, ripenRate));
+            if (water) dsc.Append(MeltInfoCompact(Api, inventory.FirstNonEmptySlot, ripenRate));
         }
         public static string PerishableInfoCompact(ICoreAPI Api, ItemSlot contentSlot, float ripenRate, bool withStackName = true)
         {
@@ -700,8 +813,6 @@ namespace ArtOfGrowing.BlockEntites
             StringBuilder dsc = new StringBuilder();
 
             TransitionState[] transitionStates = contentSlot.Itemstack?.Collectible.UpdateAndGetTransitionStates(Api.World, contentSlot);
-
-            bool nowSpoiling = false;
 
             if (transitionStates != null)
             {
@@ -712,7 +823,6 @@ namespace ArtOfGrowing.BlockEntites
 
                     TransitionableProperties prop = state.Props;
                     float perishRate = contentSlot.Itemstack.Collectible.GetTransitionRateMul(Api.World, contentSlot, prop.Type);
-                    float dryRate = 2;
                     if (perishRate <= 0) continue;
 
                     float transitionLevel = state.TransitionLevel;
@@ -726,7 +836,6 @@ namespace ArtOfGrowing.BlockEntites
 
                             if (transitionLevel > 0)
                             {
-                                nowSpoiling = true;
                                 dsc.Append(Lang.Get("{0}% spoiled", (int)Math.Round(transitionLevel * 100)));
                             }
                             else
@@ -746,8 +855,42 @@ namespace ArtOfGrowing.BlockEntites
                                     dsc.Append(Lang.Get("Fresh for {0} hours", Math.Round(freshHoursLeft, 1)));
                                 }
                             }
-                            break;
+                            break;                        
+                    }
+                }
 
+
+                if (appendLine) dsc.AppendLine();
+            }
+
+            return dsc.ToString();
+        }
+        public static string DryInfoCompact(ICoreAPI Api, ItemSlot contentSlot, float ripenRate, bool withStackName = true)
+        {
+            if (contentSlot.Empty) return "";
+
+            StringBuilder dsc = new StringBuilder();
+
+            TransitionState[] transitionStates = contentSlot.Itemstack?.Collectible.UpdateAndGetTransitionStates(Api.World, contentSlot);
+
+            bool nowSpoiling = false;
+
+            if (transitionStates != null)
+            {
+                bool appendLine = false;
+                for (int i = 0; i < transitionStates.Length; i++)
+                {
+                    TransitionState state = transitionStates[i];
+
+                    TransitionableProperties prop = state.Props;
+                    float perishRate = contentSlot.Itemstack.Collectible.GetTransitionRateMul(Api.World, contentSlot, prop.Type);
+                    if (perishRate <= 0) continue;
+
+                    float transitionLevel = state.TransitionLevel;
+                    float freshHoursLeft = state.FreshHoursLeft / perishRate;
+
+                    switch (prop.Type)
+                    {                        
                         case EnumTransitionType.Dry:
                             if (nowSpoiling) break;
 
@@ -755,7 +898,7 @@ namespace ArtOfGrowing.BlockEntites
 
                             if (transitionLevel > 0)
                             {
-                                dsc.Append(Lang.Get("{1:0.#} days left to dry ({0}%)", (int)Math.Round(transitionLevel * 100), (state.TransitionHours - state.TransitionedHours) / Api.World.Calendar.HoursPerDay / dryRate));
+                                dsc.Append(Lang.Get("Dries in {1:0.#} days", (int)Math.Round(transitionLevel * 100), (state.TransitionHours - state.TransitionedHours) / Api.World.Calendar.HoursPerDay / perishRate));
                             }
                             else
                             {
@@ -772,6 +915,68 @@ namespace ArtOfGrowing.BlockEntites
                                 else
                                 {
                                     dsc.Append(Lang.Get("Will dry in {0} hours", Math.Round(freshHoursLeft, 1)));
+                                }
+                            }
+                            break;
+                    }
+                }
+
+
+                if (appendLine) dsc.AppendLine();
+            }
+
+            return dsc.ToString();
+        }
+        public static string MeltInfoCompact(ICoreAPI Api, ItemSlot contentSlot, float ripenRate, bool withStackName = true)
+        {
+            if (contentSlot.Empty) return "";
+
+            StringBuilder dsc = new StringBuilder();
+
+            TransitionState[] transitionStates = contentSlot.Itemstack?.Collectible.UpdateAndGetTransitionStates(Api.World, contentSlot);
+
+            bool nowSpoiling = false;
+
+            if (transitionStates != null)
+            {
+                bool appendLine = false;
+                for (int i = 0; i < transitionStates.Length; i++)
+                {
+                    TransitionState state = transitionStates[i];
+
+                    TransitionableProperties prop = state.Props;
+                    float perishRate = contentSlot.Itemstack.Collectible.GetTransitionRateMul(Api.World, contentSlot, prop.Type);
+                    if (perishRate <= 0) continue;
+
+                    float transitionLevel = state.TransitionLevel;
+                    float freshHoursLeft = state.FreshHoursLeft / perishRate;
+
+                    switch (prop.Type)
+                    {
+                        case EnumTransitionType.Melt:
+                            if (nowSpoiling) break;
+
+                            appendLine = true;
+
+                            if (transitionLevel > 0)
+                            {
+                                dsc.Append(Lang.Get("Soak in {1:0.#} days", (int)Math.Round(transitionLevel * 100), (state.TransitionHours - state.TransitionedHours) / Api.World.Calendar.HoursPerDay / perishRate));
+                            }
+                            else
+                            {
+                                double hoursPerday = Api.World.Calendar.HoursPerDay;
+
+                                if (freshHoursLeft / hoursPerday >= Api.World.Calendar.DaysPerYear)
+                                {
+                                    dsc.Append(Lang.Get("Will soak in {0} years", Math.Round(freshHoursLeft / hoursPerday / Api.World.Calendar.DaysPerYear, 1)));
+                                }
+                                else if (freshHoursLeft > hoursPerday)
+                                {
+                                    dsc.Append(Lang.Get("Will soak in {0} days", Math.Round(freshHoursLeft / hoursPerday, 1)));
+                                }
+                                else
+                                {
+                                    dsc.Append(Lang.Get("Will soak in {0} hours", Math.Round(freshHoursLeft, 1)));
                                 }
                             }
                             break;
@@ -939,6 +1144,54 @@ namespace ArtOfGrowing.BlockEntites
 
             AttachFace = BlockFacing.ALLFACES[tree.GetInt("attachFace")];
             AttachFace = AttachFace.FaceWhenRotatedBy(0, -degreeRotation * GameMath.DEG2RAD, 0);
+            tree.SetInt("attachFace", AttachFace?.Index ?? 0);
+        }
+
+        public override void FromTreeAttributes(ITreeAttribute tree, IWorldAccessor worldForResolving)
+        {
+            base.FromTreeAttributes(tree, worldForResolving);
+            clientsideFirstPlacement = false;
+
+            forceStorageProps = tree.GetBool("forceStorageProps");
+            if (forceStorageProps)
+            {
+                StorageProps = JsonUtil.FromString<AOGGroundStorageProperties>(tree.GetString("storageProps"));
+            }
+
+            overrideLayout = null;
+            if (tree.HasAttribute("overrideLayout"))
+            {
+                overrideLayout = (AOGEnumGroundStorageLayout)tree.GetInt("overrideLayout");
+            }
+
+            if (this.Api != null)
+            {
+                DetermineStorageProperties(null);
+            }
+
+            MeshAngle = tree.GetFloat("meshAngle");
+            AttachFace = BlockFacing.ALLFACES[tree.GetInt("attachFace")];
+
+
+            // Do this last!!!  Prevents bug where initially drawn with wrong rotation
+            RedrawAfterReceivingTreeAttributes(worldForResolving);     // Redraw on client after we have completed receiving the update from server
+        }
+
+        public override void ToTreeAttributes(ITreeAttribute tree)
+        {
+            base.ToTreeAttributes(tree);
+
+            tree.SetBool("forceStorageProps", forceStorageProps);
+            if (forceStorageProps)
+            {
+                tree.SetString("storageProps", JsonUtil.ToString(StorageProps));
+            }
+            if (overrideLayout != null)
+            {
+                tree.SetInt("overrideLayout", (int)overrideLayout);
+            }
+
+            tree.SetFloat("meshAngle", MeshAngle);
             tree.SetInt("attachFace", AttachFace?.Index ?? 0);
         }
 

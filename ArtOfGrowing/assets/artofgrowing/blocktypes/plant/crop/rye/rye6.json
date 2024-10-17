@@ -48,8 +48,10 @@
 	rainPermeable: false,
 	dropsByType: {
 		"*-9": [
-			{ type: "item", code: "grainbundle-rye-6", quantity: { avg: 10, var: 2 }  },
-			{ type: "item", code: "seeds-rye7", quantity: { avg: 0.1 }  }
+			{ type: "item", code: "grainbundle-rye-6", quantity: { avg: 6, var: 4 }  },
+			{ type: "item", code: "grainbundle-rye-7", quantity: { avg: 1, var: 1 }  },
+			{ type: "item", code: "grainbundle-rye-4", quantity: { avg: 2, var: 2 }  },
+			{ type: "item", code: "grainbundle-rye-5", quantity: { avg: 3, var: 3 }  }
 		],
 		"*": [
 			{ type: "item", code: "game:drygrass", quantity: { avg: 0.7 }  },
